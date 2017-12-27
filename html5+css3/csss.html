@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<script src="js/jquery-1.9.1.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<style>
+		nav li{background: pink}
+		nav>li{background: yellow}
+		h5~h4{background: Azure}
+		.box1,.box2,.box3{width: 100px;height: 100px;float: left;background: pink;margin: 10px}
+		.div1:first-letter{background: purple;color:white;}
+		.div2:first-line{background: purple;color:white;}
+		.div3:before{content: "这个是："}
+		.div4:after{content: "--医"}
+		.exnav>ul>li:after{content:url(img/q.jpg);}
+		.exna>ul>li:before{content: open-quote;}
+		.exna>ul>li:after{content: close-quote;}
+		.exna1>ul>li{quotes: "<<" ">>"}
+		.exna1>ul>li:before{content: open-quote;}
+		.exna1>ul>li:after{content: close-quote;}
+		.nav1>ul>li{counter-increment:mycounter}
+		.nav1>ul>li:before{content:'第' counter(mycounter,lower-greek)'次：.';}
+		.box4>h2{counter-increment: jishi;counter-reset:jishii}
+		.box4>p{counter-increment: jishii}
+		.box4>h2:before{content: '第'counter(jishi,georgian)'.'}
+		.box4>p:before{content: '第'counter(jishii,cjk-ideographic)'本'}
+		:root{border:1px orange solid;}
+		aside>ul>li:first-child{border: 1px solid orange}
+		aside>ul>li:last-child{background: lime}/*因为aside最后一个节点不是li所以没有显示*/
+		aside>ul>li:nth-child(3){background: yellow}
+		aside>ul>li:nth-last-child(3){background: greenyellow}/*倒数第三个子节点注意，ul和下面的span元素也算一个节点*/
+		small>span:only-child{background: greenyellow}/*small下只有span这个元素，如果有了其它元素这个选择器就无效了*/
+		.bigbox2>ul>li:nth-child(odd){
+			border: 1px solid aqua;margin:1px;
+		}
+		.bigbox2>ul>li:nth-child(even){
+			border: 1px solid orange;margin:1px;
+		}
+		.bigbox3>ul>li:nth-child(3n+1){
+			border: 1px solid aqua;margin:1px;
+		}
+		.bigbox3>ul>li:nth-last-child(4n+1){
+			border: 1px solid orange;margin:1px;
+		}
+		.bigbox4>ul>li:first-of-type{
+			background: pink;
+		}
+		.bigbox4>ul>li:last-of-type{
+			background: blue;
+		}
+		.bigbox4>ul>li:nth-of-type(4){
+			background: lime;
+		}
+		.bigbox4>ul>li:nth-last-of-type(4){
+			background: orange;
+		}
+		.bigbox4>ul>li:nth-last-of-type(5n+1){
+			background: Azure;
+		}
+		.bigbox5>div,.bigbox5>span:empty{border: 1px solid red;padding: 10px}
+		#pp{
+			-webkit-border-radius:5px;
+			-o-border-radius:5px;
+			-moz-border-radius:5px;
+			-ms-border-radius:5px;
+			border: 1px solid orange;
+		}
+	</style>
+</head>
+<body>
+	<p>外部样式单@import，但现在被外部引入代替了，因为会导致屏闪@import "xxx.css" @import url("xxx.css")</p>
+	<hr>
+	<nav>
+	<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia minus voluptatum modi ea in quibusdam incidunt suscipit necessitatibus voluptate fuga, ex nemo consequuntur blanditiis sit saepe, repellendus commodi, aliquid provident?</li>
+		<ul>
+			<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, doloribus.</li>
+			<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, doloribus.</li>
+		</ul>
+	</nav>
+	<pre>
+	&lt;style&gt;
+		nav li{background: pink}/*这里匹配的是nav所有的li元素，但注意css的东西是从上到下执行的，*/
+		nav>li{background: yellow}/*这里匹配的是nav的子元素，不匹配nav的孙子元素*/
+	&lt;/style&gt;
+	</pre>
+	<h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis voluptatem incidunt, reprehenderit.</h4>
+	<h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem soluta aut, magnam.</h5>
+	<h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis voluptatem incidunt, reprehenderit.</h4>
+	<h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis voluptatem incidunt, reprehenderit.</h4>
+	<h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, doloribus voluptates eveniet!</h5>
+	<pre>
+&lt;style&gt;
+	h5~h4{background: Azure}/*与h5后面的同级h4元素都添加样式，但在前面的没有效果*/
+&lt;/style&gt;		
+	</pre>
+<hr>
+	<div class="box1"></div>
+	<div class="box2"></div>
+	<div class="box3"></div>
+	<pre style="clear:both">
+	&lt;style&gt;
+		.box1,.box2,.box3{width: 100px;height: 100px;float: left;background: pink;margin: 10px}
+	&lt;/style&gt;		
+	</pre>
+	<div class="div1">王 ipsum dolor sit amet, consectetur adipisicing elit. Magni sit ratione aliquid perferendis commodi asperiores iste, id rerum quaerat assumenda modi optio, minima, officia dolorem error ipsa praesentium unde placeat!</div>
+	<div class="div2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis provident recusandae, ratione illo explicabo voluptate quisquam dolor autem! Quis voluptatibus error provident, modi itaque adipisci, minima necessitatibus quas, id dicta culpa dolore omnis quaerat repellat optio fuga accusantium ullam sapiente! Fuga omnis, optio nisi culpa impedit cumque laborum atque quasi ipsum sint, odio, qui molestias.</div>
+	<div class="div3">div3</div>
+	<div class="div3">div3</div>
+	<div class="div4">div4</div>
+	<div class="div4">div4</div>
+<pre>
+&lt;style&gt;
+	.div1:first-letter{background: purple;color:white;}/*所有div1中的第一个字*/
+	.div2:first-line{background: purple;color:white;}/*所有div2中的第一行字*/
+	.div3:before{content: "这个是："}/*所有div3的内容中前面加这么些字*/
+	.div4:after{content: "--医"}/*所有div4的内容中后面加这么些字*/
+&lt;/style&gt;		
+</pre>
+<hr>
+<p>插入图像</p>
+<div class="exnav">
+	<ul>
+		<li>Lorem ipsum dolor sit amet, consectetur adipisicing.</li>
+		<li>Lorem ipsum dolor sit amet, consectetur adipisicing.</li>
+		<li>Lorem ipsum dolor sit amet, consectetur adipisicing.</li>
+		<li>Lorem ipsum dolor sit amet, consectetur adipisicing.</li>
+	</ul>
+</div>
+<pre>
+&lt;style&gt;
+	.exnav&gt;ul&gt;li:after{content:url(img/q.jpg);}	
+&lt;/style&gt;
+</pre>
+<div class="exna">
+		<ul>
+			<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta inventore, doloremque. Numquam.</li>
+			<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, hic expedita. A.</li>
+			<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque omnis inventore dolor.</li>
+		</ul>
+</div>
+<pre>
+&lt;style&gt;
+		.exna>ul>li:before{content: open-quote;}
+		.exna>ul>li:after{content: close-quote;}/*默认左右加""*/	
+&lt;/style&gt;	
+</pre>
+<div class="exna1">
+		<ul>
+			<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta inventore, doloremque. Numquam.</li>
+			<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, hic expedita. A.</li>
+			<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque omnis inventore dolor.</li>
+		</ul>
+</div>
+<pre>
+&lt;style&gt;
+		.exna1>ul>li{quotes: "<<" ">>"}
+		.exna1>ul>li:before{content: open-quote;}
+		.exna1>ul>li:after{content: close-quote;}	
+&lt;/style&gt;	
+</pre>
+<div class="nav1">
+		<ul>
+			<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, laboriosam.</li>
+			<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates, nostrum?</li>
+			<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, ut.</li>
+			<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, dolorum!</li>
+		</ul>
+</div>
+<pre>
+&lt;style&gt;
+	.nav1>ul>li{counter-increment:mycounter}
+	.nav1&gt;ul&gt;li:before{content:'第' counter(mycounter,lower-greek)'次：.';}
+&lt;/style&gt;
+</pre>
+<hr>
+<p>多级编号，用于有多层级的编号</p>
+<div class="box4">
+	<h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt.</h2>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur?</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia.</p>
+	<h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt.</h2>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur?</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia.</p>
+</div>
+<pre>
+&lt;style&gt;
+	.box4>h2{counter-increment: jishi;counter-reset:jishii}/*counter-reset也就是在遇到jishii这个计时器的时候重置jishii的计时*/
+	.box4>p{counter-increment: jishii}
+	.box4>h2:before{content: '第'counter(jishi,georgian)'.'}
+	.box4>p:before{content: '第'counter(jishii,cjk-ideographic)'本'}/*其实也就是分别加了两个计时器*/
+&lt;/style&gt;
+</pre>
+<hr>
+<p>:root是根元素选择器，在HTML文档中根元素永远是html元素</p>
+<div class="bigbox">
+	<aside>
+		<ul>
+			<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, fuga!</li>
+			<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, sunt.</li>
+			<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit, reiciendis.</li>
+			<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, vitae.</li>
+			<ul>
+				<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, rem.</li>
+				<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, maxime!</li>
+				<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, nisi.</li>
+			</ul>
+			<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, fuga!</li>
+			<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, sunt.</li>
+			<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit, reiciendis.</li>
+			<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, vitae.</li>
+			<ul>
+				<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, rem.</li>
+				<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, maxime!</li>
+				<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, nisi.</li>
+			</ul>
+		</ul>
+			<small>
+			<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis accusamus, fugiat sequi asperiores cupiditate culpa ducimus architecto eum consectetur autem sit, quam odit mollitia ex, omnis! Sapiente reprehenderit odit, non.</span>
+			</small>
+			<small>
+			<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis accusamus, fugiat sequi asperiores cupiditate culpa ducimus architecto eum consectetur autem sit, quam odit mollitia ex, omnis! Sapiente reprehenderit odit, non.</span>
+			</small>
+	</aside>
+</div>
+	<pre>
+&lt;div class="bigbox"&gt;
+&lt;aside&gt;
+	&lt;ul&gt;
+		&lt;li&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, fuga!&lt;/li&gt;
+		&lt;li&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, sunt.&lt;/li&gt;
+		&lt;li&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit, reiciendis.&lt;/li&gt;
+		&lt;li&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, vitae.&lt;/li&gt;
+		&lt;ul&gt;
+			&lt;li&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, rem.&lt;/li&gt;
+			&lt;li&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, maxime!&lt;/li&gt;
+			&lt;li&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, nisi.&lt;/li&gt;
+		&lt;/ul&gt;
+		&lt;li&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, fuga!&lt;/li&gt;
+		&lt;li&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, sunt.&lt;/li&gt;
+		&lt;li&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit, reiciendis.&lt;/li&gt;
+		&lt;li&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, vitae.&lt;/li&gt;
+		&lt;ul&gt;
+			&lt;li&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, rem.&lt;/li&gt;
+			&lt;li&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, maxime!&lt;/li&gt;
+			&lt;li&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, nisi.&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/ul&gt;
+		&lt;small&gt;
+		&lt;span&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis accusamus, fugiat sequi asperiores cupiditate culpa ducimus architecto eum consectetur autem sit, quam odit mollitia ex, omnis! Sapiente reprehenderit odit, non.&lt;/span&gt;
+		&lt;/small&gt;
+		&lt;small&gt;
+		&lt;span&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis accusamus, fugiat sequi asperiores cupiditate culpa ducimus architecto eum consectetur autem sit, quam odit mollitia ex, omnis! Sapiente reprehenderit odit, non.&lt;/span&gt;
+		&lt;/small&gt;
+&lt;/aside&gt;
+&lt;/div&gt;
+&lt;style&gt;
+	:root{border:1px orange solid;}
+	aside&gt;ul&gt;li:first-child{border: 1px solid orange}
+	aside&gt;ul&gt;li:last-child{background: lime}/*因为aside最后一个节点不是li所以没有显示*/
+	aside&gt;ul&gt;li:nth-child(3){background: yellow}
+	aside&gt;ul&gt;li:nth-last-child(3){background: greenyellow}/*倒数第三个子节点注意，ul和下面的span元素也算一个节点*/
+	small&gt;span:only-child{background: greenyellow}/*small下只有span这个元素，如果有了其它元素这个选择器就无效了*/	
+&lt;/style&gt;		
+</pre>
+<hr>
+<div class="bigbox2">
+	<ul>
+		<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, soluta.</li>
+		<li>Laborum inventore perspiciatis cupiditate sit beatae atque, veritatis fugit exercitationem.</li>
+		<li>Aperiam saepe aliquid ab, libero excepturi accusantium, itaque nemo fuga!</li>
+		<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla, illo.</li>
+		<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, optio.</li>
+	</ul>
+</div>
+<pre>
+&lt;style&gt;
+.bigbox2>ul>li:nth-child(odd){
+	border: 1px solid aqua;margin:1px;
+}
+.bigbox2>ul>li:nth-child(even){
+	border: 1px solid orange;margin:1px;
+}	
+&lt;/style&gt;
+</pre>
+<div class="bigbox3">
+	<ul>
+		<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, soluta.</li>
+		<li>Laborum inventore perspiciatis cupiditate sit beatae atque, veritatis fugit exercitationem.</li>
+		<li>Aperiam saepe aliquid ab, libero excepturi accusantium, itaque nemo fuga!</li>
+		<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla, illo.</li>
+		<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, optio.</li>
+		<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, soluta.</li>
+		<li>Laborum inventore perspiciatis cupiditate sit beatae atque, veritatis fugit exercitationem.</li>
+		<li>Aperiam saepe aliquid ab, libero excepturi accusantium, itaque nemo fuga!</li>
+		<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla, illo.</li>
+		<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, optio.</li>
+	</ul>
+</div>
+<pre>
+&lt;style&gt;
+.bigbox3>ul>li:nth-child(3n+1){
+	border: 1px solid aqua;margin:1px;
+}
+.bigbox3>ul>li:nth-last-child(4n+1){
+	border: 1px solid orange;margin:1px;
+}	
+&lt;/style&gt;
+</pre>
+<hr>
+<div class="bigbox4">
+	<ul>
+		<h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h6>
+		<li>Lorem ipsum dolor sit amet, consectetur adipisicing.</li>
+		<li>Lorem ipsum dolor sit amet, consectetur adipisicing.</li>
+		<h6>Lorem ipsum dolor sit.</h6>
+		<li>Lorem ipsum dolor sit amet, consectetur adipisicing.</li>
+		<li>Lorem ipsum dolor sit amet, consectetur adipisicing.</li>
+		<li>Lorem ipsum dolor sit amet, consectetur adipisicing.</li>
+		<h6>Lorem ipsum dolor sit.</h6>
+	</ul>
+</div>
+<pre>
+/*这里选择器是同类型的元素，所以建议用这种选择器,也支持even,odd*/
+&lt;style&gt;
+	.bigbox4>ul>li:first-of-type{
+		background: pink;
+	}
+	.bigbox4>ul>li:last-of-type{
+		background: blue;
+	}
+	.bigbox4>ul>li:nth-of-type(4){
+		background: lime;
+	}
+	.bigbox4>ul>li:nth-last-of-type(4){
+		background: orange;
+	}
+	.bigbox4>ul>li:nth-last-of-type(5n+1){
+		background: Azure;
+	}	
+&lt;/style&gt;
+</pre>
+<hr>
+<p>伪类选择器空：empty</p>
+<div class="bigbox5">
+	<div></div>
+	<span></span>
+</div>
+<pre>
+&lt;style&gt;
+	.bigbox5>div,.bigbox5>span:empty{border: 1px solid red;padding: 10px}
+&lt;/style&gt;
+</pre>
+<hr>
+<p>UI元素状态下所有伪类选择器</p>
+<style>
+	#cha:link{color:GreenYellow;}
+	#cha:hover{color:Cyan;}
+	#cha:visited{color:Plum;}
+	#cha:active{color:LightSteelBlue;}
+</style>
+<a href="javascript:;" id="cha">lorem</a>
+<a href="#" id="cha">lorem</a>
+<a href="#">lorem</a>
+<pre>
+&lt;style&gt;
+	#cha:link{color:GreenYellow;}
+	#cha:hover{color:Cyan;}
+	#cha:visited{color:Plum;}
+	#cha:active{color:LightSteelBlue;}
+&lt;/style&gt;
+&lt;a href="javascript:;" id="cha"&gt;lorem&lt;/a&gt;//herf="javascript:;"可以让超链接点击不跳转，所以不会有那些：visited效果
+&lt;a href="#" id="cha"&gt;lorem&lt;/a&gt;//这个是普通的超链接，但你按过之后就会发现除了点击时有效果:hover，其它效果全变成了点击过后的效果：visited
+&lt;a href="#"&gt;lorem&lt;/a&gt;//没有样式的超链接
+</pre>
+<form action="" id="form2">
+	<input type="text" placeholder="如果获得焦点">
+	<input type="text" placeholder="可用">
+	<input type="text" placeholder="不可用" disabled>
+	<input type="checkbox" checked name="" id="ch1">
+	<input type="checkbox" checked name="" id="ch2">
+</form>
+<style>
+	#form2>input:focus{outline: 1px solid red}/*边框颜色会重复的,设定enabled会覆盖这个边框属性，设背景或者outline外框属性*/
+	#form2>input:enabled{border: 1px solid pink}/*可用状态*/
+	#form2>input:disabled{border: 1px solid orange}/*不可用状态*/
+	#form2>#ch1:checked{outline: 1px solid purple}/*页面加载时默认被选中有这个属性，或者选中后点击其它地方有这个属性*/
+	#form2>#ch2:default{outline: 1px solid purple}/*和上面一样但不选中后点击其它地方有这个属性*/
+</style>
+<pre>
+&lt;form action="" id="form2"&gt;
+&lt;input type="text" placeholder="如果获得焦点"&gt;
+&lt;input type="text" placeholder="可用"&gt;
+&lt;input type="text" placeholder="不可用" disabled&gt;
+&lt;input type="checkbox" checked name="" id="ch1"&gt;
+&lt;input type="checkbox" checked name="" id="ch2"&gt;
+&lt;/form&gt;
+&lt;style&gt;
+	#form2>input:focus{outline: 1px solid red}/*边框颜色会重复的,设定enabled会覆盖这个边框属性，设背景或者outline外框属性*/
+	#form2>input:enabled{border: 1px solid pink}/*可用状态*/
+	#form2>input:disabled{border: 1px solid orange}/*不可用状态*/
+	#form2>#ch1:checked{outline: 1px solid purple}/*页面加载时默认被选中有这个属性，或者选中后点击其它地方有这个属性*/
+	#form2>#ch2:default{outline: 1px solid purple}/*和上面一样但不选中后点击其它地方有这个属性*/
+&lt;/style&gt;	
+</pre>
+<form action="" id="form1">
+	<input type="text" placeholder="可读写">
+	<input type="text" readonly placeholder="只读">
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum cum vero voluptatibus nam ex perspiciatis numquam eius fugit, fuga cumque, est dolore animi ut! Quaerat minus veniam, architecto odio. Nisi.试着选取这些文字</p>
+</form>
+<style>
+	#form1>input:read-write{border: 1px solid blue}
+	#form1>input:read-only{border: 1px solid red}
+	#form1>p::selection{color:red;}	
+</style>
+<pre>
+&lt;form action="" id="form1"&gt;
+	&lt;input type="text" placeholder="可读写"&gt;
+	&lt;input type="text" readonly placeholder="只读"&gt;
+	&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum cum vero voluptatibus nam ex perspiciatis numquam eius fugit, fuga cumque, est dolore animi ut! Quaerat minus veniam, architecto odio. Nisi.试着选取这些文字&lt;/p&gt;
+&lt;/form&gt;
+&lt;style&gt;
+	#form1&gt;input:read-write{border: 1px solid blue}
+	#form1&gt;input:read-only{border: 1px solid red}
+	#form1&gt;p::selection{color:red;}	
+&lt;/style&gt;	
+</pre>
+<hr>
+<p id="pp">浏览器专属的属性在前面加前缀就可以了比如-ms-IE浏览器前缀，-moz-火狐浏览器前缀，-o-Opear浏览器前缀，-webkit-比如Chrome,Safari浏览器的前缀</p>
+<pre>
+&lt;style&gt;/*用法比如，（但实验时只有-webkit-起了作用对火狐Opera）*/
+	#pp{
+			-webkit-border-radius:5px;
+			-o-border-radius:5px;
+			-moz-border-radius:5px;
+			-ms-border-radius:5px;
+			border: 1px solid orange;
+		}
+&lt;/style&gt;
+</pre>
+<hr>
+<div class="divex1">	
+<a href="#w">有锚点的超链接</a>
+<p id="w">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, temporibus.</p>
+<p id="maodian">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex.</p>
+<a href="#maodian">锚点</a>
+<br>
+<mark>试着点击上面两个链接</mark>
+</div>
+<style>
+	:target{background: pink}
+</style>
+<pre>
+&lt;div class="divex1"&gt;	
+&lt;a href="#w"&gt;有锚点的超链接&lt;/a&gt;
+&lt;p id="w"&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, temporibus.&lt;/p&gt;
+&lt;p id="maodian"&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex.&lt;/p&gt;
+&lt;a href="#maodian"&gt;锚点&lt;/a&gt;
+&lt;/div&gt;
+&lt;style&gt;
+	:target{background: pink}//如果你在这里前面#w那么只有w这个锚点有效果	
+&lt;/style&gt;
+</pre>
+<p>:not选择器</p>
+<ul>
+	<li id="li1">Lorem ipsum dolor sit amet, consectetur adipisicing.</li>
+	<li id="li2">Lorem ipsum dolor sit amet, consectetur adipisicing.</li>
+	<li id="li3">Lorem ipsum dolor sit amet, consectetur adipisicing.</li>
+	<li id="li4">Lorem ipsum dolor sit amet, consectetur adipisicing.</li>
+</ul>
+<p>选中上面所有的文字会发现第三行文字没有样式</p>
+<style>
+	li:not(#li3)::selection{
+		color:PowderBlue;
+	}
+</style>
+<pre>
+&lt;ul&gt;
+	&lt;li id="li1"&gt;Lorem ipsum dolor sit amet, consectetur adipisicing.&lt;/li&gt;
+	&lt;li id="li2"&gt;Lorem ipsum dolor sit amet, consectetur adipisicing.&lt;/li&gt;
+	&lt;li id="li3"&gt;Lorem ipsum dolor sit amet, consectetur adipisicing.&lt;/li&gt;
+	&lt;li id="li4"&gt;Lorem ipsum dolor sit amet, consectetur adipisicing.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;style&gt;
+	li:not(#li3)::selection{
+		color:PowderBlue;
+	}
+&lt;/style&gt;	
+</pre>
+
+</body>
+</html>

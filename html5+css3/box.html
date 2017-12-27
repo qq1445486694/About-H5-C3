@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	*{margin:0px;padding: 0;font-family: verdana}
+		#container{
+			width: 100%;
+			height: 400px;
+			border:1px solid lime;
+		}
+		#box{
+			position: relative;
+			top:50%;
+			left:50%;
+			margin-left: -50px;
+			margin-top: -50px;
+			perspective:1000px;
+			transform:rotateY(30deg);
+		}
+		#front,#back,#left,#right,#top,#bottom{
+			width: 100px;height: 100px;background: rgba(225,255,30,0.3);
+			border:1px solid orange;
+			box-sizing:border-box;
+			position: absolute;
+		}
+		#front{
+		
+		}
+		#top{
+			transform:rotateX(50deg);
+		}
+		#bottom{
+			transform:rotateX(-50deg);
+		}
+		#left{
+			transform:rotateY(50deg);
+		}
+		#right{
+			transform:rotateY(-50deg);
+		}
+		#front{
+			/*transform:rotateY(50deg);*/
+		}
+		#back{
+			transform:rotateY(-180deg);
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div id="box">
+		<!-- 	<div id="front">front</div>
+			<div id="back">back</div> -->
+			<div id="left">left</div>	
+			<div id="right">right</div>
+			<div id="top">top</div>
+			<div id="bottom">bottom</div>
+		</div>
+	</div>
+</body>
+</html>

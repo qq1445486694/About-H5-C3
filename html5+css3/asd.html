@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<form action="html5.html">
+	<input type="range" name="user" id="fn" autofocus required min="1" max="10" step="2" placeholder="please write seven word">
+	<input type="submit" value="submit">
+</form>
+	
+</body>
+</html>
+<script>
+	var fn=document.getElementById('fn');
+		fn.value="22";
+		alert(fn.value);
+		fn.addEventListener("invalid",en,false);
+		
+		function en () {
+			alert(this.validity.rangeOverflow);
+			//valid  验证失败返回false
+			//valueMissing  空值返回true失败返回false
+			//typeMismatch  输入的与要求的类型不匹配返回true失败返回false
+			//patternMismatch当输入的与预期的正则要求不匹配返回true出现其它错误返回false
+			//tooLong当用户输入的长度超过maxlength的限制,返回true,其余情况返回false,初始值超过会返回false
+			ev.preventDefault();
+		}
+</script>

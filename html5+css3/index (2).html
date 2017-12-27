@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<style>
+		html,body {
+		margin: 0;
+		padding:0;
+		height: 100%;
+		}
+		#container {
+		min-height:100%;
+		height: auto !important;
+		height: 100%; /*IE6不识别min-height*/
+		position: relative;
+		}
+		#header {
+		background: #ff0;
+		padding: 10px;
+		}
+		
+		#page {
+		width: 960px;
+		margin: 0 auto;
+		padding-bottom: 60px;/*等于footer的高度*/
+		background: aqua
+		}
+		
+		#footer {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		height: 60px;/*脚部的高度*/
+		background: #6cf;
+		clear:both;
+		}
+		/*=======主体内容部分=======*/
+		#left {
+		width: 220px;
+		float: left;
+		margin-right: 20px;
+		background: lime;
+		}
+		
+		#content {
+		background: orange;
+		float: left;
+		width: 480px;
+		margin-right: 20px;
+		}
+
+		#right{
+		background: green;
+		float: right;
+		width: 220px;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+        <div id="header">Header Title</div>
+        <div id="page" class="clearfix">
+            <div id="left">Left Sider</div>
+            <div id="content">
+            <pre>
+&lt;div id="container"&gt;
+        &lt;div id="header"&gt;Header Title&lt;/div&gt;
+        &lt;div id="page" class="clearfix"&gt;
+            &lt;div id="left"&gt;Left Sider&lt;/div&gt;
+            &lt;div id="content"&gt;
+             &lt;/div&gt;
+            &lt;div id="right"&gt;Right Sider&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;div id="footer"&gt;Footer Section&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+            &lt;style&gt;
+		header,footer{position: fixed;top:0;left:0;width: 100%;height: 100px;background: Cyan}
+		html,body {
+		margin: 0;
+		padding:0;
+		height: 100%;
+		}
+		#container {
+		min-height:100%;
+		height: auto !important;
+		height: 100%; /*IE6不识别min-height*/
+		position: relative;
+		}
+		#header {
+		background: #ff0;
+		padding: 10px;
+		}
+		
+		#page {
+		width: 960px;
+		margin: 0 auto;
+		padding-bottom: 60px;/*等于footer的高度*/
+		}
+		
+		#footer {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		height: 60px;/*脚部的高度*/
+		background: #6cf;
+		clear:both;
+		}
+		/*=======主体内容部分=======*/
+		#left {
+		width: 220px;
+		float: left;
+		margin-right: 20px;
+		background: lime;
+		}
+		
+		#content {
+		background: orange;
+		float: left;
+		width: 480px;
+		margin-right: 20px;
+		}
+		
+		#right{
+		background: green;
+		float: right;
+		width: 220px;
+		}
+	&lt;/style&gt;	
+            </pre>
+            </div>
+            <div id="right">Right Sider</div>
+        </div>
+    <div id="footer">Footer Section</div>
+    </div>
+</div>
+</body>
+</html>

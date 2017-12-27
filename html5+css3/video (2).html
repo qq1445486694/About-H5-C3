@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<video src="video/Taylor Swift - Begin Again.mp4" autoplay controls></video>
+	<button>播放</button>
+	<button>暂停</button>
+	<button>静音</button>
+	<button>音量+</button>
+	<button>音量-</button>
+	<button>快进</button>
+	<button>快退</button>
+	<button>加速</button>
+	<button>减速</button>
+	<button>全屏</button>
+	<progress max=100 value=0></progress>
+</body>
+</html>
+<script>
+var video=document.getElementsByTagName('video')[0];
+var btn=document.getElementsByTagName('button');
+var progress=document.getElementsByTagName('progress')[0];
+	function btnn (x) {
+		btn[x].onclick=function (argument) {
+			switch(x){
+				case 0:video.play();break;
+				case 1:video.pause();break;
+				case 2:video.muted=!video.muted;break;
+				case 3:video.volume+=0.1;break;
+				case 4:video.volume-=0.1;break;
+				case 5:video.currentTime+=10;break;
+				case 6:video.currentTime-=10;break;
+				case 7:video.playbackRate+=0.1;break;
+				case 8:video.playbackRate-=0.1;break;
+				case 9:video.mozRequestFullScreen();break;
+			}
+		}
+	}
+	setInterval(pro,100);
+	function pro (argument) {
+		progress.value=video.currentTime/video.duration*100
+	}
+	for (var i = 9; i >= 0; i--) {
+		new btnn(i);
+	};
+</script>

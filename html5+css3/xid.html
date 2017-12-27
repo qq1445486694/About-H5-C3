@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<script src="js/angular.js"></script>
+	<script src="js/jquery-1.9.1.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+	<video src="video/ts.mp4" controls autoplay loop id="video"></video>
+	<button>播放</button>
+	<button>暂停</button>
+	<button>音量+</button>
+	<button>音量-</button>
+	<button>静音</button>
+	<button>快进</button>
+	<button>快退</button>
+	<button>加速</button>
+	<button>慢速</button>
+	<button>全屏</button>
+	<progress value=0 min=0 max=100 id="pro"></progress>
+</body>
+</html>
+<script>
+	var btn=document.getElementsByTagName('button');
+	var video=document.getElementById('video');
+	btn[0].onclick=function () {
+		video.play();
+	}
+	btn[1].onclick=function () {
+		video.pause();
+	}
+	btn[2].onclick=function () {
+		video.volume+=0.1;
+	}
+	btn[3].onclick=function () {
+		video.volume-=0.1;
+	}
+	btn[4].onclick=function () {
+		video.muted=!video.muted;
+	}
+	btn[5].onclick=function () {
+		video.currentTime+=10;
+	}
+	btn[6].onclick=function () {
+		videocurrentTime-=10;
+	}
+	btn[7].onclick=function () {
+		video.playbackRate=2;
+	}
+	btn[8].onclick=function () {
+		video.playbackRate=0.5;
+	}
+	btn[9].onclick=function () {
+		video.mozRequestFullScreen();
+	}
+	setInterval(chan,1000);
+	function chan (argument) {
+		
+	pro.value=100*video.currentTime/video.duration;
+	}
+</script>

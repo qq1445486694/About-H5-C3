@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<form action="www.baidu.com">
+	<input type="search" name="user" id="fn" autocomplete="on" autofocus required pattern="\d{1,7}" placeholder="please write seven word">
+	<input type="submit" value="submit">
+</form>
+	
+</body>
+</html>
+<script>
+	var fn=document.getElementById('fn');
+		fn.addEventListener("invalid",en,true);
+		function en () {
+			alert("ex claimb")
+		}
+</script>

@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/pre.css">
+	<script src="js/jquery-1.9.1.js"></script>
+	<style>
+	*{font-family: verdana;}
+		#d,#f,#g,#h{
+			width: 100px;
+			height: 100px;
+			border:1px solid skyblue;
+			display: inline-block;
+		}
+		#d{
+			animation:identifier 4s;
+		}
+		#f{
+			animation:identifier2 4s;
+		}
+		#g{
+			animation:identifier3 4s;
+		}
+		#h{
+			animation:identifier4 4s;
+		}
+		@keyframes identifier {
+			from { transform:rotateX(0deg); }
+			to {  transform:rotateX(360deg); }
+		}
+		@keyframes identifier2 {
+			from { transform:rotateY(0deg); }
+			to {  transform:rotateY(360deg); }
+		}
+		@keyframes identifier3 {
+			from { transform:rotateZ(0deg); }
+			to {  transform:rotateZ(360deg); }
+		}
+		@keyframes identifier4 {
+			from { 
+				transform:rotate3D(0,0,0,0deg);
+			}
+			to { 
+				transform:rotate3D(1,1,1,360deg);  
+			}
+		}
+		#q,#w,#e,#r{
+			width: 100px;
+			height: 100px;
+			border:1px solid skyblue;
+		}
+		#q{
+			animation:identifier5 4s;
+		}
+		@keyframes identifier5 {
+			from { transform:translateX(0px); }
+			to { transform:translateX(40px); }
+		}
+		#w{
+			animation:identifier6 4s;
+		}
+		@keyframes identifier6 {
+			from { transform:translateY(0px); }
+			to { transform:translateY(40px); }
+		}
+		#e{
+			animation:identifier7 4s;
+		}
+		@keyframes identifier7 {
+			from { transform:translateZ(0px); }
+			to { transform:translateZ(40px); }
+		}
+		#r{
+			animation:identifier8 4s;
+		}
+		@keyframes identifier8 {
+			from { transform:translate3d(0px,0px,0px); }
+			to { transform:translate3d(40px,40px,40px); }
+		}
+		#t,#y,#u,#i{
+			width: 100px;
+			height: 100px;
+			border:1px solid skyblue;
+		}
+		#t{
+			animation:identifier9 4s;
+		}
+		@keyframes identifier9 {
+			from { transform:scaleX(0); }
+			to { transform:scaleX(1);   }
+		}
+		#y{
+			animation:identifier10 4s;
+		}
+		@keyframes identifier10 {
+			from { transform:scaleY(0); }
+			to { transform:scaleY(1);   }
+		}
+		#u{
+			animation:identifier11 4s;
+		}
+		@keyframes identifier11 {
+			from { transform:scalez(0); }
+			to { transform:scalez(1);   }
+		}
+		#i{
+			animation:identifier12 4s;
+		}
+		@keyframes identifier12 {
+			from { transform:scale3d(0,0,0); }
+			to { transform:scale3d(1,1,1);   }
+		}
+		#front,#back,#left,#right,#top,#bottom{
+			width: 300px;
+			height: 300px;
+			/*border-radius: 50%;*/
+			border:1px solid orange;
+			position: absolute;
+			top:50%;
+			left:50%;
+			margin-left: -150px;
+			margin-top: -150px;
+			display: -webkit-box;
+  			-webkit-box-pack: center;
+  			-webkit-box-align: center;
+  			-webkit-box-orient:vertical;
+  			display: -moz-box;
+  			-moz-box-pack: center;
+  			-moz-box-align: center;
+  			display: -o-box;
+  			-o-box-pack: center;
+  			-o-box-align: center;
+  			display: -ms-box;
+  			-ms-box-pack: center;
+  			-ms-box-align: center;
+  			display: box;
+  			box-pack: center;
+  			box-align: center;
+  			background:rgba(255, 255, 80, 0.5);
+		}
+		#box{
+			width: 100%;
+			height: 500px;
+			border:1px solid lime;
+			padding: 30px;
+			position: relative;
+			perspective:1200px;	
+		}
+		/*#front,#back,#left,#right,#top,#bottom{
+			animation:identifier13 4s;	
+		}
+		@keyframes identifier13 {
+			from { transform:translateZ(0px);}
+			to { transform:translateZ(100px);}
+		}*/
+		/*#front{
+			transform:translateX(20px);
+			background: orange;
+		}
+		#back{
+			transform:translateX(-20px);
+			transform:translatey(-20px);
+			background: yellow;
+		}
+		#top{
+			transform:rotateX(30deg);
+			background: blue;
+		}
+		#bottom{
+			transform:rotateX(-90deg);
+			background: green;
+		}
+		#left{
+			transform:rotateY(90deg);
+			background: orange;
+		}
+		#right{
+			transform:rotateY(-90deg);
+			background: yellow;
+		}*/
+		#front{
+			transform:translateZ(150px)
+		}
+		#top{
+			transform:rotateX(90deg) translateZ(150px);
+		}
+		#bottom{
+			transform:rotateX(-90deg) translateZ(150px);
+		}
+		#left{
+			transform:rotateY(-90deg) translateZ(150px);
+		}
+		#right{
+			transform:rotateY(90deg) translateZ(150px);
+		}
+		#back{
+			transform:rotateY(-180deg) translateZ(150px);
+		}
+		#cube{
+			position: absolute;
+			top:0;
+			left:50%;
+  			transform:translateY(300px);
+			/*-webkit-animation: identifier14 12s infinite linear;
+			-o-animation: identifier14 12s infinite linear;
+			animation: identifier14 12s infinite linear;*/
+			transform-style:preserve-3d;
+			transform:translateY(300px);
+		}
+		@keyframes identifier14 {
+			from { transform:translateY(300px) rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+			to { transform:translateY(300px) rotateX(0deg) rotateY(1440deg) rotateZ(0deg); }
+		}
+		@keyframes identifier15 {
+			from { transform:translateY(300px) rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+			to { transform:translateY(300px) rotateX(0deg) rotateY(-1440deg) rotateZ(0deg); }
+		}
+	</style>
+</head>
+<body>
+	<div id="d">
+		Lorem ipsum dolor.
+	</div>
+	<div id="f">
+		Lorem ipsum dolor.
+	</div>
+	<div id="g">
+		Lorem ipsum dolor.
+	</div>
+	<div id="h">
+		Lorem ipsum dolor.
+	</div>
+	<pre>
+	#d,#f,#g,#h{
+			width: 100px;
+			height: 100px;
+			border:1px solid skyblue;
+			display: inline-block;
+		}
+		#d{
+			animation:identifier 4s;
+		}
+		#f{
+			animation:identifier2 4s;
+		}
+		#g{
+			animation:identifier3 4s;
+		}
+		#h{
+			animation:identifier4 4s;
+		}
+		@keyframes identifier {
+			from { transform:rotateX(0deg); }
+			to {  transform:rotateX(360deg); }
+		}
+		@keyframes identifier2 {
+			from { transform:rotateY(0deg); }
+			to {  transform:rotateY(360deg); }
+		}
+		@keyframes identifier3 {
+			from { transform:rotateZ(0deg); }
+			to {  transform:rotateZ(360deg); }
+		}
+		@keyframes identifier4 {
+			from { 
+				transform:rotate3D(0,0,0,0deg);
+			}
+			to { 
+				transform:rotate3D(1,1,1,360deg);  
+			}
+		}	
+	</pre>
+	<div id="q">
+		Lorem ipsum dolor.
+	</div>
+	<div id="w">
+		Lorem ipsum dolor.
+	</div>
+	<div id="e">
+		Lorem ipsum dolor.
+	</div>
+	<div id="r">
+		Lorem ipsum dolor.
+	</div>
+	<pre>
+		#q{
+			animation:identifier5 4s;
+		}
+		@keyframes identifier5 {
+			from { transform:translateX(0px); }
+			to { transform:translateX(40px); }
+		}
+		#w{
+			animation:identifier6 4s;
+		}
+		@keyframes identifier6 {
+			from { transform:translateY(0px); }
+			to { transform:translateY(40px); }
+		}
+		#e{
+			animation:identifier7 4s;
+		}
+		@keyframes identifier7 {
+			from { transform:translateZ(0px); }
+			to { transform:translateZ(40px); }
+		}
+		#r{
+			animation:identifier8 4s;
+		}
+		@keyframes identifier8 {
+			from { transform:translate3d(0px,0px,0px); }
+			to { transform:translate3d(40px,40px,40px); }
+		}	
+	</pre>
+	<div id="t">
+		Lorem ipsum dolor.
+	</div>
+	<div id="y">
+		Lorem ipsum dolor.
+	</div>
+	<div id="u">
+		Lorem ipsum dolor.
+	</div>
+	<div id="i">
+		Lorem ipsum dolor.
+	</div>
+	<pre>
+	#t,#y,#u,#i{
+			width: 100px;
+			height: 100px;
+			border:1px solid skyblue;
+		}
+		#t{
+			animation:identifier9 4s;
+		}
+		@keyframes identifier9 {
+			from { transform:scaleX(0); }
+			to { transform:scaleX(1);   }
+		}
+		#y{
+			animation:identifier10 4s;
+		}
+		@keyframes identifier10 {
+			from { transform:scaleY(0); }
+			to { transform:scaleY(1);   }
+		}
+		#u{
+			animation:identifier11 4s;
+		}
+		@keyframes identifier11 {
+			from { transform:scalez(0); }
+			to { transform:scalez(1);   }
+		}
+		#i{
+			animation:identifier12 4s;
+		}
+		@keyframes identifier12 {
+			from { transform:scale3d(0,0,0); }
+			to { transform:scale3d(1,1,1);   }
+		}	
+	</pre>
+	<div id="box">
+		<div id="cube">
+			<div id="front">front</div>
+			<div id="back">back</div>
+			<div id="left">left</div>	
+			<div id="right">right</div>
+			<div id="top">top</div>
+			<div id="bottom">bottom</div>
+		</div>
+	</div>
+	<pre>
+	#front,#back,#left,#right,#top,#bottom{
+			width: 300px;
+			height: 300px;
+			border:1px solid orange;
+			position: absolute;
+			top:50%;
+			left:50%;
+			margin-left: -150px;
+			margin-top: -150px;
+			display: -webkit-box;
+  			-webkit-box-pack: center;
+  			-webkit-box-align: center;
+  			-webkit-box-orient:vertical;
+  			display: -moz-box;
+  			-moz-box-pack: center;
+  			-moz-box-align: center;
+  			display: -o-box;
+  			-o-box-pack: center;
+  			-o-box-align: center;
+  			display: -ms-box;
+  			-ms-box-pack: center;
+  			-ms-box-align: center;
+  			display: box;
+  			box-pack: center;
+  			box-align: center;
+  			background:rgba(255, 255, 80, 0.5);
+		}
+		#box{
+			width: 100%;
+			height: 500px;
+			border:1px solid lime;
+			padding: 30px;
+			position: relative;
+			perspective:1200px;	
+		}
+	#front{
+			transform:translateZ(150px)
+		}
+		#top{
+			transform:rotateX(90deg) translateZ(150px);
+		}
+		#bottom{
+			transform:rotateX(-90deg) translateZ(150px);
+		}
+		#left{
+			transform:rotateY(-90deg) translateZ(150px);
+		}
+		#right{
+			transform:rotateY(90deg) translateZ(150px);
+		}
+		#back{
+			transform:rotateY(-180deg) translateZ(150px);
+		}
+		#cube{
+  			transform:translateY(300px);
+			   -webkit-animation: identifier14 4s infinite linear;
+			   -o-animation: identifier14 4s infinite linear;
+			   animation: identifier14 4s infinite linear;
+			transform-style:preserve-3d;
+			transform:translateY(300px);
+		}
+		@keyframes identifier14 {
+			from { transform:translateY(300px) rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+			to { transform:translateY(300px) rotateX(0deg) rotateY(1440deg) rotateZ(0deg); }
+		}	
+	</pre>
+	<div id="divg" style="width:100px;height:100px;border:1px solid lime;position:absolute;left:0px;top:0px"></div>
+</body>
+</html>
+<script>
+	var front=document.getElementById('front');
+		function drag (id) {
+	var oDiv=document.getElementById(id);
+				arr1=[];
+	oDiv.onmousedown=function (ev) {
+		var oEvent=ev||event;
+		document.onmousemove=function (ev) {
+			var oEvent=ev||event;
+			setInterval(function (argument) {
+				arr1.push(oEvent.clientX);
+				if(arr1[1]-arr1[0]>30){
+					oDiv.style.animation="identifier14 5s";
+				}else{
+					oDiv.style.animation="identifier15 5s";
+				}
+			},10)
+		}
+		document.onmouseup=function (argument) {
+			document.onmousemove=null;
+			document.onmouseup=null;
+		}
+	}
+}
+function getstyle (id,attr) {
+var oDiv=document.getElementById(id);	
+	if(oDiv.currentStyle){
+		return parseInt(oDiv.currentStyle[attr])
+		}else{
+		return parseInt(getComputedStyle(oDiv,false)[attr])
+		}
+	}
+	drag("cube");
+	var moveForce = 30; // max popup movement in pixels
+var rotateForce = 20; // max popup rotation in deg
+
+$(document).mousemove(function(e) {
+    var docX = $(document).width();
+    var docY = $(document).height();
+    
+    var moveX = (e.pageX - docX/2) / (docX/2) * -moveForce;
+    var moveY = (e.pageY - docY/2) / (docY/2) * -moveForce;
+    
+    var rotateY = (e.pageX / docX * rotateForce*2) - rotateForce;
+    var rotateX = -((e.pageY / docY * rotateForce*2) - rotateForce);
+    
+    $('.popup')
+        .css('left', moveX+'px')
+        .css('top', moveY+'px')
+        .css('transform', 'rotateX('+rotateX+'deg) rotateY('+rotateY+'deg)');
+});
+</script>

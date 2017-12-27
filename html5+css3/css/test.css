@@ -1,0 +1,16 @@
+*{margin:0px;padding: 0;}
+#div1,#div2,#div3,#div4{box-sizing:border-box;}
+#div1{background: GreenYellow}
+#div2{background: aqua}
+#div3{background: lime}
+#div4{LightCyan}
+#div11,#div21,#div31,#div41{height: 100px;box-sizing:border-box;}
+#div11{background: GreenYellow}
+#div21{background: aqua}
+#div31{background: lime}
+#div41{LightCyan}
+#div11,#div21,#div31,#div41{height: 100px;box-sizing:border-box;}
+#div11{background: GreenYellow}
+#div21{background: aqua}
+#div31{background: lime}
+#div41{LightCyan}

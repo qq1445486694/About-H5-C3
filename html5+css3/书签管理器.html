@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>书签管理器</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+				需求：通过书签管理器来管理网页中的书签项。具备书签的增删改查功能。
+				构造函数：书签管理器、书签
+				书签的属性：网址、标题、星级
+				书签管理的属性：书签数组
+				书签管理的方法：
+					1、添加书签（要求：不能重复添加标题或网址，也就是说只要符合一个条件就不让添加）
+					2、显示所有书签信息（要求：按照星级排序、升序或降序都可以）
+					3、删除书签（通过标题删除）
+					4、修改书签（通过标题去修改标题、网址和星级）
+			*/
+
+			//书签的构造函数
+			function BookItem (url, title, star) {
+				this.url = url;
+				this.title = title;
+				this.star = star;
+			}
+			//书签管理器的构造函数
+			function BookManager () {
+				//存储书签对象的数组
+				this.bookItemArray = new Array();	
+			}
+
+			//添加书签（要求：不能重复添加标题或网址，也就是说只要符合一个条件就不让添加）
+			BookManager.prototype.addBookItem = function (bookItem) {
+				//遍历书签数组
+				for (var i = 0; i < this.bookItemArray.length; i++) {
+				//得到每一个bookItem对象
+					var tempBookItem = this.bookItemArray[i];
+					//和新添加的bookItem对象中的title和url一一作比较
+					if (tempBookItem.title == bookItem.title || tempBookItem.url == bookItem.url) {
+						console.log("标题或网址重复了！");
+						return;
+					}
+				}	
+				//把要添加的书签对象添加到书签数组中
+				this.bookItemArray.push(bookItem);
+			}
+
+			//添加书签（要求：不能重复添加标题或网址，也就是说只要符合一个条件就不让添加）
+			BookManager.prototype.addBookItem2 = function (url, title, star) {
+				//遍历数组
+				for (var i = 0; i < this.bookItemArray.length; i++) {
+					//得到每一个书签对象
+					var tempBookItem = this.bookItemArray[i];
+					//判断
+					if (tempBookItem.title == title || tempBookItem.url == url) {
+						console.log("标题或网址重复了！");
+						return;
+					}
+				}
+
+				//如果信息不重复，则创建一个新的书签对象，并且加入到书签数组中
+				var bookItem = new BookItem(url, title, star);
+				//添加到数组中
+				this.bookItemArray.push(bookItem);
+			}
+
+			//显示所有书签信息（要求：按照星级排序、升序或降序都可以）
+			BookManager.prototype.showAllBookItemInfo = function () {
+				//冒泡排序
+				for (var i = 0; i < this.bookItemArray.length - 1; i++) {
+					for (var j = 0; j < this.bookItemArray.length - 1 - i; j++) {
+						//获得相邻的两个对象
+						var tempBookItem1 = this.bookItemArray[j];
+						var tempBookItem2 = this.bookItemArray[j + 1];
+						if (tempBookItem1.star <= tempBookItem2.star) {
+							//利用splice方法交换数组中两个元素的位置
+							this.bookItemArray.splice(j, 2, tempBookItem2, tempBookItem1);
+							// this.bookItemArray.splice(j + 1, 1, tempBookItem1);
+						}
+					}
+				}
+
+				//显示所有标签信息
+				for (var i = 0; i < this.bookItemArray.length; i++) {
+					//得到每一个书签对象
+					var tempBookItem = this.bookItemArray[i];
+					console.log(" \n 网址：" + tempBookItem.url + " \n 标题：" + tempBookItem.title + " \n 星级：" + tempBookItem.star);
+				}
+			}
+
+			//删除书签（通过标题删除）
+			BookManager.prototype.delBookItemByTitle = function (title) {
+				//遍历数组
+				for (var i = 0; i < this.bookItemArray.length; i++) {
+					//获得每一个书签对象
+					var tempBookItem = this.bookItemArray[i];
+					if (tempBookItem.title == title) {
+						this.bookItemArray.splice(i, 1);
+						//注意：这种方式能解决在遍历的过程中删除数组中某个元素（前提是这个元素是唯一的）
+						return;
+						// i--;
+					}
+				}
+				// console.log("没有要找到删除的书签");
+			}
+
+			//修改书签（通过标题去修改标题、网址和星级）
+			BookManager.prototype.modifyBookItemByTitle = function (targetTitle, modifyUrl, modifyTitle, modifyStar) {
+				//遍历数组
+				for (var i = 0; i < this.bookItemArray.length; i++) {
+					//得到每一个书签对象
+					var tempBookItem = this.bookItemArray[i];
+					if (tempBookItem.title == targetTitle) {
+						tempBookItem.title = modifyTitle;
+						tempBookItem.url = modifyUrl;
+						tempBookItem.star = modifyStar;
+						return;
+					}
+				}
+			}
+
+
+			/**** 测试一下 *****/
+			//创建书签对象
+			var bookItem1 = new BookItem("www.baidu.com", "百度", 3);
+			var bookItem2 = new BookItem("www.sohu.com", "搜狐", 2);
+			var bookItem3 = new BookItem("www.163.com", "网易", 4);
+			var bookItem4 = new BookItem("www.163.com", "黄易", 3);
+
+			//创建书签管理器对象
+			var bookManager = new BookManager();
+			//添加书签方法 1
+			bookManager.addBookItem(bookItem1);
+			bookManager.addBookItem(bookItem2);
+			bookManager.addBookItem(bookItem3);
+			bookManager.addBookItem(bookItem4);
+
+			// console.log(bookManager.bookItemArray);
+
+			//添加书签方法 2
+			bookManager.addBookItem2("www.sina.com", "百度", 4);
+			bookManager.addBookItem2("www.sina.com", "新浪", 1);
+			bookManager.addBookItem2("www.tencent.com", "腾讯", 5);
+			// console.log(bookManager.bookItemArray);
+			//显示所有标签信息
+			bookManager.showAllBookItemInfo();
+			console.log("==================");
+			//删除标签
+			bookManager.delBookItemByTitle("新浪");
+			bookManager.delBookItemByTitle("百度");
+
+			//显示所有标签信息
+			bookManager.showAllBookItemInfo();
+
+			//修改方法
+			bookManager.modifyBookItemByTitle("腾讯", "www.qq.com", "企鹅", 3);
+
+			console.log("==================");
+
+			//显示所有标签信息
+			bookManager.showAllBookItemInfo();
+
+
+		</script>
+	</body>
+</html>

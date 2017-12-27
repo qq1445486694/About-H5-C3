@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	*{margin: 0px auto;padding: 0px}
+		html{background: -webkit-linear-gradient(Ivory 0%,HoneyDew 100%) no-repeat 100% 100%}
+		canvas{background: White;border: 1px solid MintCream;margin: 20px}
+		span{color: white}
+	</style>
+</head>
+<body>
+	<canvas id="c1" width=200 height=200>
+	<span>不支持canvas</span>
+	</canvas>
+
+	<canvas id="c2" width=200 height=200>
+	<span>不支持canvas</span>
+	</canvas>
+
+	<canvas id="c3" width="200" height="200">
+	<span>不支持canvas</span>
+	</canvas>
+
+	<canvas id="c4" width="200" height="200">
+	<span>不支持canvas</span>
+	</canvas>
+
+	<canvas id="c5" width="200" height="200">
+	<span>不支持canvas</span>
+	</canvas>
+
+	<canvas id="c6" width="200" height="200">
+	<span>不支持canvas</span>
+	</canvas>
+
+	<canvas id="c7" width="200" height="200">
+	<span>不支持canvas</span>
+	</canvas>
+
+	<canvas id="c8" width="200" height="200">
+	<span>不支持canvas</span>
+	</canvas>
+
+	<canvas id="c9" width="200" height="200">
+	<span>不支持canvas</span>
+	</canvas>
+
+	<canvas id="c10" width="200" height="200">
+	<span>不支持canvas</span>
+	</canvas>
+
+	<canvas id="c11" width="200" height="200">
+	<span>不支持canvas</span>
+	</canvas>
+
+	<canvas id="c12" width="200" height="200">
+	<span>不支持canvas</span>
+	</canvas>
+
+	<canvas id="c13" width="200" height="200">
+	<span>不支持canvas</span>
+	</canvas>
+
+	<canvas id="c14" width="200" height="200">
+	<span>不支持canvas</span>
+	</canvas>
+
+	<canvas id="c15" width="200" height="200">
+	<span>不支持canvas</span>
+	</canvas>
+
+	<canvas id="c16" width="200" height="200">
+	<span>不支持canvas</span>
+	</canvas>
+
+	<canvas id="c17" width="200" height="200">
+	<span>不支持canvas</span>
+	</canvas>
+
+	<canvas id="c18" width="200" height="200">
+	<span>不支持canvas</span>
+	</canvas>
+
+	<canvas id="c19" width="200" height="200">
+	<span>不支持canvas</span>
+	</canvas>
+
+	<canvas id="c20" width="200" height="200">
+	<span>不支持canvas</span>
+	</canvas>
+
+	<canvas id="c21" width="200" height="200">
+	<span>不支持canvas</span>
+	</canvas>
+
+	<canvas id="c22" width="200" height="200">
+	<span>不支持canvas</span>
+	</canvas>
+
+</body>
+</html>
+<script>
+
+// window.onload = function(){
+// 	var oC = document.getElementById('c1');
+	
+// 	var oGC = oC.getContext('2d');  
+	
+// 	oC.onmousedown = function(ev){
+// 		var ev = ev || window.event;
+// 		oGC.moveTo(ev.clientX-oC.offsetLeft,ev.clientY-oC.offsetTop);
+// 		document.onmousemove = function(ev){
+// 			var ev = ev || window.event;
+// 			oGC.lineTo(ev.clientX-oC.offsetLeft,ev.clientY-oC.offsetTop);
+// 			oGC.stroke();
+// 		};
+// 		document.onmouseup = function(){
+// 			document.onmousemove = null;
+// 			document.onmouseup = null;
+// 		};
+// 	};
+	
+// };
+
+window.onload = function () {
+	var c1=document.getElementById('c1');
+	var td=c1.getContext('2d');
+	td.strokeStyle='pink';
+	td.lineWidth = 4.5;
+	td.strokeRect(50.5,50.5,100,100);
+
+	
+	var c2=document.getElementById('c2');
+	var td_2=c2.getContext('2d');
+	td_2.fillStyle='Bisque';
+	td_2.fillRect(50,50,100,100);
+
+	var c3=document.getElementById('c3');
+	var td_3=c3.getContext('2d');
+	td_3.strokeStyle='pink';
+	td_3.lineWidth = 7;
+	td_3.lineJoin='bevel';
+	td_3.strokeRect(50,50,100,100);
+	td_3.lineWidth = 6;
+	td_3.lineJoin='round';
+	td_3.strokeRect(70,70,60,60);
+	td_3.lineWidth = 6;
+	td_3.lineJoin='miter';
+	td_3.strokeRect(85,85,30,30);
+
+	var c4=document.getElementById('c4');
+	var td_4=c4.getContext('2d');
+	td_4.beginPath();
+	td_4.moveTo(100,30);
+	td_4.lineTo(34,141.24);
+	td_4.lineTo(170,141.24);
+	td_4.lineWidth=2.4;
+	td_4.lineJoin='bevel';
+	td_4.strokeStyle='Aquamarine';
+	td_4.closePath();
+	td_4.stroke();
+	
+	var c5=document.getElementById('c5');
+	var td_5=c5.getContext('2d');
+	td_5.beginPath();
+	td_5.beginPath();
+	td_5.rect(50,50,100,100);
+	td_5.closePath();
+	td_5.stroke();
+	td_5.clearRect(100,100,c5.width,c5.height);
+
+	var c6=document.getElementById('c6');
+	var td_6=c6.getContext('2d');
+	td_6.beginPath();
+	td_6.moveTo(100,30);
+	td_6.lineTo(160,70);
+	td_6.lineTo(140,170);
+	td_6.lineTo(60,170);
+	td_6.lineTo(40,70);
+	td_6.strokeStyle='blue';
+	td_6.stroke();
+	td_6.closePath();
+
+	td_6.beginPath();
+	td_6.lineCap="round";
+	td_6.moveTo(30,50);
+	td_6.lineTo(80,20);
+	td_6.lineWidth='12';
+	td_6.stroke();
+	td_6.closePath();
+	td_6.clearRect(100,100,c6.width,c6.height);
+}
+</script>

@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CANVAS</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<script src="js/angular.js"></script>
+	<script src="js/jquery-1.9.1.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/canvas.js"></script>
+	<style>
+		canvas{background: White;border: 1px solid orange;margin: 20px;}
+	</style>
+</head>
+<body>
+	<a href="http://www.it165.net/pro/html/201403/10908.html"><mark>传送门</mark></a>
+	<a href="http://blog.csdn.net/u013064109/article/details/51872240"><mark>传送门</mark></a>
+	<p>一个空心方块的基本组成</p>
+	<canvas width=200 height=200>
+		
+	</canvas>
+	<script>
+		var c=document.getElementsByTagName('canvas');
+		var td=c[0].getContext('2d');
+		td.strokeStyle='pink';
+		td.lineWidth=3;
+		td.strokeRect(50.5,50.5,100,100);
+	</script>
+	<pre>
+		&lt;script&gt;
+			var c=document.getElementsByTagName('canvas');
+			var td=c[0].getContext('2d');
+			td.strokeStyle='pink';
+			td.lineWidth=3;
+			td.strokeRect(50.5,50.5,100,100);
+		&lt;/script&gt;
+	</pre>
+	<hr>
+	<p>一个实心方形</p>
+	<canvas width=200 height=200>
+		
+	</canvas>
+	<script>
+		var td1=c[1].getContext('2d');
+		td1.fillStyle="lime";
+		td1.fillRect(30,20,120,60);
+	</script>
+	<pre>	
+		&lt;script&gt;
+			var td1=c[1].getContext('2d');
+			td1.fillStyle="lime";
+			td1.fillRect(30,20,120,60);
+		&lt;/script&gt;
+	</pre>
+	<hr>	
+	<p>一个折线</p>
+	<canvas width=200 height=200>
+		
+	</canvas>
+	<script>	
+		var td2=c[2].getContext('2d');
+		td2.beginPath();
+		td2.moveTo(10,10);
+		td2.lineTo(50,70);
+		td2.lineTo(60,40);
+		td2.lineTo(110,150);
+		td2.stroke();
+		td2.closePath();
+	</script>
+	<pre>	
+	&lt;script&gt;	
+		var td2=c[2].getContext('2d');
+		td2.beginPath();
+		td2.moveTo(10,10);
+		td2.lineTo(50,70);
+		td2.lineTo(60,40);
+		td2.lineTo(110,150);
+		td2.stroke();
+	&lt;/script&gt;
+	</pre>
+	<hr>	
+	<p>文字</p>
+	<canvas width=200 height=200>
+		
+	</canvas>
+	<script>	
+		var td3=c[3].getContext('2d');
+		td3.font="bold 50px 楷体";
+		td3.fillStyle="blue";
+		td3.fillText("赵帅飞",10,50);
+		td3.strokeStyle="blue";
+		td3.strokeText("赵帅飞",10,150);
+	</script>
+	<pre>	
+	&lt;script&gt;	
+		var td3=c[3].getContext('2d');
+		td3.font="bold 50px 楷体";
+		td3.fillStyle="blue";
+		td3.fillText("赵帅飞",10,50);
+		td3.strokeStyle="blue";
+		td3.strokeText("赵帅飞",10,150);
+	&lt;/script&gt;
+	</pre>
+	<p>添加阴影</p>
+	<canvas width=200 height=200>
+		
+	</canvas>
+	<script>	
+		var td4=c[4].getContext('2d');
+		td4.shadowBlur=10;
+		td4.shadowColor="red";
+		td4.shadowOffsetX=10;
+		td4.shadowOffsetY=10;
+		td4.strokeRect(60,60,60,60);
+	</script>
+	<pre>	
+	&lt;script&gt;	
+		var td4=c[4].getContext('2d');
+		td4.shadowBlur=10;//设置阴影的模糊度，越大越模糊
+		td4.shadowColor="red";//阴影的颜色
+		td4.shadowOffsetX=10;//阴影向左右平移10个像素
+		td4.shadowOffsetY=10;//向下
+		td4.strokeRect(60,60,60,60);
+	&lt;/script&gt;	
+	</pre>
+	<hr>
+	<p>	</p>
+	<canvas width=200 height=200 style="float:left">
+		
+	</canvas>
+	<img src="img/a.png" alt="">
+	<script>	
+		var td5=c[5].getContext('2d');
+		td5.beginPath();
+		td5.arc(45,45,40,0.5*Math.PI,1.5*Math.PI,false);//float x ,float y ,半径，开始弧度点，结束弧度点，顺逆时针
+		td5.stroke();
+		td5.closePath();
+		td5.beginPath();
+		td5.arc(45,90,40,0.5*Math.PI,1*Math.PI,true);
+		td5.stroke();
+		td5.closePath();
+	</script>
+	<pre style="clear:both">	
+	&lt;script&gt;	
+		var td5=c[5].getContext('2d');
+		//一个基本的
+		td5.beginPath();
+		td5.arc(45,45,40,0.5*Math.PI,1.5*Math.PI,false);//float x ,float y ,半径，开始弧度点，结束弧度点，顺逆时针
+		td5.stroke();
+		td5.closePath();
+		//第二个
+		td5.beginPath();
+		td5.arc(45,90,40,0.5*Math.PI,1*Math.PI,true);
+		td5.stroke();
+		td5.closePath();
+	&lt;/script&gt;
+	</pre>
+	<hr>
+	<p>一个圆角矩形</p>
+	<canvas width=200 height=200>
+		
+	</canvas>
+	<script>
+		var td6=c[6].getContext('2d');
+		function RC (context,x1,y1,width,height,radius) {
+			context.moveTo(x1+radius,y1);//移动到了左上角x1+radius中的radius是一个圆角的距离
+			context.lineTo(x1+width-radius,y1);//width是这个线的总长度包括radius的长度
+			context.arcTo(x1+width,y1,x1+width,y1+radius,radius);//x1+width和y1是弧的两端点的交点，x1+width,y1+radius是arcTo要到的点
+			context.lineTo(x1+width,y1+height-radius);//是右下角直线的终点
+			context.arcTo(x1+width,y1+height,x1+width-radius,y1+height,radius);
+			context.lineTo(x1+radius,y1+height);
+			context.arcTo(x1,y1+height,x1,y1+height-radius,radius);
+			context.lineTo(x1,y1+radius);
+			context.arcTo(x1,y1,x1+radius,y1,radius);
+			context.closePath();
+		}
+		RC(td6,30,30,100,100,20);
+		td6.stroke();
+	</script>
+	<pre>
+	&lt;script&gt;
+		var td6=c[6].getContext('2d');
+		//下面是给圆角矩形封装的一个函数
+		function RC (context,x1,y1,width,height,radius) {
+			context.moveTo(x1+radius,y1);//移动到了左上角x1+radius中的radius是一个圆角的距离
+			context.lineTo(x1+width-radius,y1);//width是这个线的总长度包括radius的长度
+			context.arcTo(x1+width,y1,x1+width,y1+radius,radius);//x1+width和y1是弧的两端点的交点，x1+width,y1+radius是arcTo要到的点
+			context.lineTo(x1+width,y1+height-radius);//是右下角直线的终点
+			context.arcTo(x1+width,y1+height,x1+width-radius,y1+height,radius);
+			context.lineTo(x1+radius,y1+height);
+			context.arcTo(x1,y1+height,x1,y1+height-radius,radius);
+			context.lineTo(x1,y1+radius);
+			context.arcTo(x1,y1,x1+radius,y1,radius);
+			context.closePath();
+		}
+		RC(td6,30,30,100,100,20);
+		td6.stroke();
+	&lt;/script&gt;
+	</pre>
+	<p>绘制一个奇数多边形</p>
+	<canvas width=200 height=200>
+		
+	</canvas>
+	<script>
+	var td7=c[7].getContext('2d');
+	function CS (context,n,dx,dy,size) {
+		context.beginPath();
+		var dig=Math.PI/n*4;
+		for (var i = 0; i < n; i++) {
+			var x=Math.sin(i*dig);
+			var y=Math.cos(i*dig);
+			context.lineTo(x*size+dx,y*size+dy);
+		};
+		context.closePath();
+	}
+	td7.shadowBlur=10;
+	td7.shadowColor="black";
+	CS(td7,9,60,60,50);
+	td7.stroke();
+	</script>
+	<pre>
+	&lt;script&gt;
+	var td7=c[7].getContext('2d');
+	//下面的函数数学不会就先死记吧
+	function CS (context,n,dx,dy,size) {//要做的canvas标签，n是多边形的边数，不要是偶数，dx,dy是多边形中心点的位置，radius是多边形的大小
+		context.beginPath();
+		var dig=Math.PI/n*4;//通过这个数字调整多边形的尖锐度,最好不要是奇数
+		for (var i = 0; i < n; i++) {
+			var x=Math.sin(i*dig);
+			var y=Math.cos(i*dig);
+			context.lineTo(x*size+dx,y*size+dy);
+		};
+		context.closePath();
+	}
+	td7.shadowBlur=10;//加了一点阴影
+	td7.shadowColor="black";//设置阴影的颜色
+	CS(td7,9,60,60,50);
+	td7.stroke();
+	&lt;/script&gt;
+	</pre>
+<hr>
+<p>二次曲线绘制的花</p>
+<canvas width=200 height=200>
+		
+</canvas>
+<script>
+	var td8=c[8].getContext('2d');
+	function CF (context,n,dx,dy,size,length) {
+		context.beginPath();
+		context.moveTo(dx,dy+size);
+		var dig=2*Math.PI/n;
+		for (var i =1; i < n+1; i++) {
+			var ctrlX=Math.sin((i-0.5)*dig)*length+dx;
+			var ctrlY=Math.cos((i-0.5)*dig)*length+dy;
+			var x=Math.sin(i*dig)*size+dx;
+			var y=Math.cos(i*dig)*size+dy;
+			context.quadraticCurveTo(ctrlX,ctrlY,x,y);
+		}
+		context.closePath();
+	}
+	CF(td8,5,70,100,30,80);
+	td8.stroke();
+</script>
+<pre>
+&lt;script&gt;
+	var td8=c[8].getContext('2d');
+	function CF (context,n,dx,dy,size,length) {
+		context.beginPath();
+		context.moveTo(dx,dy+size);
+		var dig=2*Math.PI/n;
+		for (var i =1; i < n+1; i++) {
+			var ctrlX=Math.sin((i-0.5)*dig)*length+dx;
+			var ctrlY=Math.cos((i-0.5)*dig)*length+dy;
+			var x=Math.sin(i*dig)*size+dx;
+			var y=Math.cos(i*dig)*size+dy;
+			context.quadraticCurveTo(ctrlX,ctrlY,x,y);
+		}
+		context.closePath();
+	}
+	CF(td8,5,70,100,30,80);
+	td8.stroke();
+&lt;/script&gt;
+</pre>
+<hr>
+<p>位图</p>
+<canvas width=400 height=200>
+		
+</canvas>
+<script>
+	var td9=c[9].getContext('2d');
+	var image=new Image();
+	image.src="img/like2.png";
+	image.onload=function (argument) {
+		td9.drawImage(image,5,5);
+		td9.drawImage(image,225,5,100,100);
+		td9.drawImage(image,20,10,100,100,330,10,50,50);
+	}
+</script>
+<pre>
+&lt;script&gt;
+	var td9=c[9].getContext('2d');
+	var image=new Image();
+	image.src="img/like2.png";
+	image.onload=function (argument) {
+		td9.drawImage(image,5,5);
+		//保持原大小绘制的图片
+		td9.drawImage(image,225,5,100,100);
+		//绘制图片并且缩放
+		td9.drawImage(image,20,10,100,100,330,10,50,50);
+		//第一个值是图片本身，第二三个是从图片的座标值开始截取，第三四个是要截取的宽高，第五六个是图片在Canvas的位置，第七八个是要做的图片的大小
+	}
+&lt;/script&gt;
+</pre>
+<hr>
+<p>bezierCurveTo曲线</p>
+<canvas width=200 height=200>
+		
+</canvas>
+<script>
+	var td10=c[10].getContext('2d');
+	td10.beginPath();
+	td10.moveTo(100,50);
+	td10.bezierCurveTo(10,10,10,110,100,140);
+	td10.bezierCurveTo(190,90,170,15,100,50);
+	td10.stroke();
+</script>
+<pre>
+&lt;script&gt;
+	var td10=c[10].getContext('2d');
+	td10.beginPath();
+	td10.moveTo(100,50);//设置起始点
+	td10.bezierCurveTo(10,10,10,110,100,140);//前2个值为第一个控制点，中间2个为第二个控制点，第三个为结束点
+	td10.bezierCurveTo(190,90,170,15,100,50);//第二条曲线，要知道一个心形用一条线是有点，，，，
+	td10.stroke();
+&lt;/script&gt;
+</pre>
+<hr>
+<p>坐标变换</p>
+<canvas width=200 height=200>
+		
+</canvas>
+<script>
+	var td11=c[11].getContext('2d');
+	td11.translate(20,20);
+	td11.fillRect(0,0,50,50);
+	td11.translate(20,20);
+	td11.fillRect(0,70,50,50);
+</script>
+<pre>
+&lt;script&gt;
+	var td11=c[11].getContext('2d');
+	td11.translate(20,20);
+	//向右下平移了20像素
+	td11.fillRect(0,0,50,50);
+	td11.translate(20,20);
+	//第二次平移，影响了两个方形
+	td11.fillRect(0,70,50,50);
+&lt;/script&gt;
+</pre>
+<hr>
+<p>角度</p>
+<canvas width=200 height=200>
+		
+</canvas>
+<script>
+	var td12=c[12].getContext('2d');
+	td12.rotate(45*Math.PI/180);
+	td12.fillRect(0,0,100,100);
+</script>
+<pre>
+&lt;script&gt;
+	var td12=c[12].getContext('2d');
+	td12.rotate(45*Math.PI/180);
+	td12.fillRect(0,0,50,50);
+&lt;/script&gt;
+</pre>
+<hr>
+<p>调整画布的中心点</p>
+<canvas width=200 height=200>
+		
+</canvas>
+<script>
+	var td13=c[13].getContext('2d');
+	td13.save();
+	td13.translate(50,50);
+	td13.rotate(-Math.PI/8);
+	td13.translate(-50,-50);
+	td13.fillRect(50,50,100,100);
+	td13.restore();
+	td13.translate(50,50);
+	td13.rotate(Math.PI/16);
+	td13.translate(-50,-50);
+	td13.fillRect(50,50,100,100);
+</script>
+<pre>
+&lt;script&gt;
+	var td13=c[13].getContext('2d');
+	td13.save();//保存路径
+	td13.translate(50,50);//调整中心点
+	td13.rotate(-Math.PI/8);//转
+	td13.translate(-50,-50);//再调回来
+	td13.fillRect(50,50,100,100);
+	td13.restore();//恢复路径
+	td13.translate(50,50);//再次调整中心点
+	td13.rotate(Math.PI/16);
+	td13.translate(-50,-50);//再调回来
+	td13.fillRect(50,50,100,100);
+&lt;/script&gt;
+</pre>
+<hr>
+<p>中心旋转</p>
+<canvas width=200 height=200>
+		
+</canvas>
+<canvas width=200 height=200>
+		
+</canvas>
+<canvas width=200 height=200>
+		
+</canvas>
+<script>
+	var td14=c[14].getContext('2d');
+	td14.fillRect(-50,-50,100,100);
+</script>
+<script>
+	var td15=c[15].getContext('2d');
+	td15.translate(100,100);
+	td15.fillRect(-50,-50,100,100);
+</script>
+<script>	
+	var td16=c[16].getContext('2d');
+	td16.translate(100,100);
+	td16.rotate(Math.PI/3);
+	td16.fillRect(-50,-50,100,100);
+</script>
+<pre>
+//中心旋转的原理是将图片或图形的中心转移到画布的中心，
+&lt;script&gt;
+	var td14=c[14].getContext('2d');
+	td14.fillRect(-50,-50,100,100);//这个宽高的正方形的中心点转移到了原画布的中心点，-50，-50
+&lt;/script&gt;
+&lt;script&gt;
+	var td15=c[15].getContext('2d');
+	td15.translate(100,100);//将画布的旋转中心转移到画布的中心，原本是0,0现在成了100，100
+	td15.fillRect(-50,-50,100,100);
+&lt;/script&gt;
+&lt;script&gt;	
+	var td16=c[16].getContext('2d');
+	td16.translate(100,100);
+	td16.rotate(Math.PI/3);//转
+	td16.fillRect(-50,-50,100,100);
+&lt;/script&gt;	
+</pre>
+<hr>
+<p>50个正方形组成的基本的坐标变换</p>
+<canvas width=200 height=200>
+		
+</canvas>
+<script>
+	var td17=c[17].getContext('2d');
+	td17.translate(40,100);
+	for (var i = 0; i <50; i++) {
+		td17.translate(10,10);
+		td17.scale(0.97,0.97);
+		td17.rotate(-Math.PI/10);
+		td17.strokeRect(0,0,50,50);
+	};
+</script>
+<pre>
+&lt;script&gt;
+	var td17=c[17].getContext('2d');
+	td17.translate(40,100);//移动画布，可以最后一步调整
+	for (var i = 0; i <50; i++) {  //把所有的属性转移到一个for循环里
+		td17.translate(10,10);
+		td17.scale(0.97,0.97);
+		td17.rotate(-Math.PI/10);
+		td17.strokeRect(0,0,50,50);
+	};
+&lt;/script&gt;
+</pre>
+<hr>
+<p>雪花</p>
+<canvas width=200 height=200>
+	
+</canvas>
+<script>
+var td18=c[18].getContext('2d');
+	function CRF (context,n,dx,dy,size,length) {
+		context.beginPath();
+		context.moveTo(dx,dy+size);
+		var dig=2*Math.PI/n;
+		for (var i = 1; i <n+1; i++) {
+			var ctrlX=Math.sin((i-0.5)*dig)*length+dx;
+			var ctrlY=Math.cos((i-0.5)*dig)*length+dy;
+			var x=Math.sin(i*dig)*size+dx;
+			var y=Math.cos(i*dig)*size+dy;
+			context.quadraticCurveTo(ctrlX,ctrlY,x,y);
+		};
+		context.closePath();
+	}
+	// CRF(td18,6,10,10,4,8);
+	// td18.stroke();
+	//定义雪花的初始位置
+	snowPOS=[
+		{x:20,y:34},
+		{x:60,y:114},
+		{x:100,y:24},
+		{x:140,y:84},
+		{x:180,y:14},
+				];
+	function fall (context) {
+		context.clearRect(0,0,200,200);
+		for (var i = 0, len=snowPOS.length; i<len;i++) {
+			context.save();
+			context.translate(snowPOS[i].x,snowPOS[i].y);
+			context.rotate((Math.random()*6-3)*Math.PI/10);
+			snowPOS[i].y+=4;
+			snowPOS[i].x+=Math.random()*2;
+			if(snowPOS[i].y>200){
+				snowPOS[i].y=0;
+			}
+			if(snowPOS[i].x>200){
+				snowPOS[i].x=0;
+				snowPOS[i].y=Math.random()*200;
+			}
+			CRF(context,6,0,0,5,8);
+			context.stroke();
+			context.restore();
+		}
+	}
+	setInterval("fall(td18)",100);
+	function cl (context) {
+		context.clearRect(0,0,200,200);
+	}
+</script>
+<pre>
+&lt;script&gt;
+var td18=c[18].getContext('2d');
+//做出雪花，这是通过曲线做出的雪花
+	function CRF (context,n,dx,dy,size,length) {
+		context.beginPath();
+		context.moveTo(dx,dy+size);
+		var dig=2*Math.PI/n;
+		for (var i = 1; i &lt;n+1; i++) {
+			var ctrlX=Math.sin((i-0.5)*dig)*length+dx;
+			var ctrlY=Math.cos((i-0.5)*dig)*length+dy;
+			var x=Math.sin(i*dig)*size+dx;
+			var y=Math.cos(i*dig)*size+dy;
+			context.quadraticCurveTo(ctrlX,ctrlY,x,y);
+		};
+		context.closePath();
+	}
+	// CRF(td18,6,10,10,4,8);
+	// td18.stroke();这个可以调试出雪花的基本形状
+	//定义雪花的初始位置
+	snowPOS=[
+		{x:20,y:34},
+		{x:60,y:114},
+		{x:100,y:24},
+		{x:140,y:84},
+		{x:180,y:14},
+				];
+	//雪花下落的函数
+	function fall (context) {
+		context.clearRect(0,0,200,200); //这个用来清除整个画布，为了在每次雪花改变轨迹的时候清除上一个雪花
+		for (var i = 0, len=snowPOS.length; i&lt;len;i++) { //重复调用,为了使每个雪花都能通过此循环运动
+			context.save();//保存路径，，，
+			context.translate(snowPOS[i].x,snowPOS[i].y);//使雪花在画布的设定位置显示
+			context.rotate((Math.random()*6-3)*Math.PI/10);//雪花在旋转
+			snowPOS[i].y+=4;
+			snowPOS[i].x+=Math.random()*2;//雪花的位置改变了
+			if(snowPOS[i].x>200){
+				snowPOS[i].x=0;
+				snowPOS[i].y=Math.random()*200;//雪花出去了画布的横边界后让其在随机的高度出现
+			}
+			if(snowPOS[i].y>200){
+				snowPOS[i].y=0;
+			} //如果雪花超过了200也就是画布的高度就会重新变为0，
+			CRF(context,6,0,0,5,8);//把雪花做出来
+			context.stroke();//确定雪花的形式，fill为填充形式
+			context.restore();//恢复路径，，
+		}
+	}
+	setInterval("fall(td18)",100);
+	function cl (context) {
+		context.clearRect(0,0,200,200);
+	}
+&lt;/script&gt;	
+</pre>
+<hr>
+<p>transform可以做出图片旋转的动画伪3d选择的动画</p>
+<canvas width=200 height=200>
+	
+</canvas>
+<script>
+	var td19=c[19].getContext('2d');
+	td19.transform(1,0.1,-0.1,1,50,50);//第一个参数是横向缩放的比例，第四个是纵向缩放的比例，第五六个是画布向左和向下移动的距离，第二个是横向的倾斜绘图，第三个是纵向的倾斜绘图
+	td19.fillRect(0,0,100,100);
+</script>
+<pre>
+&lt;script&gt;
+	var td19=c[19].getContext('2d');
+	td19.transform(1,0.1,-0.1,1,50,50);//第一个参数是横向缩放的比例，第四个是纵向缩放的比例，第五六个是画布向左和向下移动的距离，第二个是横向的倾斜绘图，第三个是纵向的倾斜绘图
+	td19.fillRect(0,0,100,100);
+&lt;/script&gt;
+</pre>
+<canvas width=200 height=200>
+	
+</canvas>
+<script>
+	var td20=c[20].getContext('2d');
+	td20.transform(-1,0,0,1,150,50);//第一个参数是横向缩放的比例，第四个是纵向缩放的比例，第五六个是画布向左和向下移动的距离，第二个是横向的倾斜绘图，第三个是纵向的倾斜绘图
+	var img=new Image();
+	img.src="img/like2.png";
+	img.onload=function (argument) {
+		td20.drawImage(img,5,5,100,100);
+	}
+</script>
+<pre>
+&lt;script&gt;
+	var td20=c[20].getContext('2d');
+	td20.transform(-1,0,0,1,150,50);//第一个参数是横向缩放的比例，第四个是纵向缩放的比例，第五六个是画布向左和向下移动的距离，第二个是横向的倾斜绘图，第三个是纵向的倾斜绘图
+	var img=new Image();
+	img.src="img/like2.png";
+	img.onload=function (argument) {
+		td20.drawImage(img,5,5,100,100);
+	}
+&lt;/script&gt;	
+</pre>
+<hr>
+<p>叠加风格</p>
+<canvas width=200 height=200>
+	
+</canvas>
+<script>
+	var td21=c[21].getContext('2d');
+	td21.fillStyle="MistyRose";
+	td21.fillRect(30,50,100,60);
+	td21.fillStyle="HoneyDew";
+	td21.globalCompositeOperation="xor";
+	td21.fillRect(80,80,100,60);
+</script>
+<pre>
+&lt;script&gt;
+	var td21=c[21].getContext('2d');
+	td21.fillStyle="MistyRose";
+	td21.fillRect(30,50,100,60);
+	td21.fillStyle="HoneyDew";
+	td21.globalCompositeOperation="xor";//原图与新图交叉的地方变透明
+	td21.fillRect(80,80,100,60);
+&lt;/script&gt;	
+</pre>
+<hr>
+<p>线性渐变</p>
+<canvas width=200 height=200>
+	
+</canvas>
+<script>
+	var td22=c[22].getContext('2d');
+	var lg=td22.createLinearGradient(10,10,200,100);//定义渐变的位置，4个值分别是左边距，上边距，宽，高
+	lg.addColorStop(0.2,"LightCyan");
+	lg.addColorStop(0.6,"MistyRose");
+	lg.addColorStop(1,"Khaki");//给渐变色设定颜色和样式
+	td22.fillStyle=lg;
+	td22.fillRect(0,0,200,50);
+	td22.beginPath();
+	td22.arc(60,110,40,Math.PI*0,Math.PI*2,true);
+	td22.fill();
+	td22.closePath();
+</script>
+<pre>
+&lt;script&gt;
+	var td22=c[22].getContext('2d');
+	var lg=td22.createLinearGradient(10,10,200,100);//定义渐变的位置，4个值分别是左边距，上边距，宽，高
+	lg.addColorStop(0.2,"LightCyan");
+	lg.addColorStop(0.6,"MistyRose");
+	lg.addColorStop(1,"Khaki");//给渐变色设定颜色和样式
+	td22.fillStyle=lg;
+	td22.fillRect(0,0,200,50);
+	td22.beginPath();
+	td22.arc(60,110,40,Math.PI*0,Math.PI*2,true);
+	td22.fill();
+	td22.closePath();
+&lt;/script&gt;
+</pre>
+<hr>
+<p>圆形渐变</p>
+<canvas width=200 height=200>
+	
+</canvas>
+<script>
+	var td23=c[23].getContext('2d');
+	var lg2=td23.createRadialGradient(100,100,10,100,100,70);//定义渐变的位置，4个值分别是左边距，上边距，宽，高
+	lg2.addColorStop(0.2,"LightCyan");
+	lg2.addColorStop(0.6,"MistyRose");
+	lg2.addColorStop(1,"Khaki");//给渐变色设定颜色和样式
+	td23.fillStyle=lg2;
+	td23.fillRect(0,0,200,200);
+</script>
+<pre>
+&lt;script&gt;
+	var td23=c[23].getContext('2d');
+	var lg2=td23.createRadialGradient(100,100,10,100,100,70);//定义渐变的位置，最后一个值为改变圆心的大小
+	lg2.addColorStop(0.2,"LightCyan");
+	lg2.addColorStop(0.6,"MistyRose");
+	lg2.addColorStop(1,"Khaki");//给渐变色设定颜色和样式
+	td23.fillStyle=lg2;
+	td23.fillRect(0,0,200,200);
+&lt;/script&gt;	
+</pre>
+<hr>
+<p>位图填充</p>
+<canvas width=200 height=200>
+	
+</canvas>
+<script>
+	var td24=c[24].getContext('2d');
+	var newimg=new Image();
+	newimg.src="img/q.jpg";
+	newimg.onload=function(){
+		imgpat=td24.createPattern(newimg,"repeat");
+		td24.fillStyle=imgpat;
+		td24.fillRect(0,0,120,120);
+		td24.arc(160,110,80,Math.PI*0,Math.PI*2,true);
+		td24.strokeStyle=imgpat;
+		td24.lineWidth=30;
+		td24.stroke();
+	}
+</script>
+<pre>
+&lt;script&gt;
+	var td24=c[24].getContext('2d');
+	var newimg=new Image();
+	newimg.src="img/q.jpg";
+	newimg.onload=function(){
+		imgpat=td24.createPattern(newimg,"repeat");//用一个变量定义画布的填充色（图片）
+		td24.fillStyle=imgpat;//接收
+		td24.fillRect(0,0,120,120);
+		td24.arc(160,110,80,Math.PI*0,Math.PI*2,true);
+		td24.strokeStyle=imgpat;
+		td24.lineWidth=30;
+		td24.stroke();
+	}
+&lt;/script&gt;	
+</pre>
+<hr>
+<canvas width="200" height="200">
+	
+</canvas>
+<script>
+	var td25=c[25].getContext('2d');
+		function CS (context,n,dx,dy,size) {//要做的canvas标签，n是多边形的边数，不要是偶数，dx,dy是多边形中心点的位置，radius是多边形的大小
+		context.beginPath();
+		var dig=Math.PI/n*4;//通过这个数字调整多边形的尖锐度,最好不要是奇数
+		for (var i = 0; i < n; i++) {
+			var x=Math.sin(i*dig);
+			var y=Math.cos(i*dig);
+			context.lineTo(x*size+dx,y*size+dy);
+		};
+		context.closePath();
+	}
+		td25.fillStyle="black";
+		td25.fillRect(0,0,200,200);
+		CS(td25,9,60,60,30);
+		td25.fillStyle="Azure"
+		td25.lineWidth="2";
+		td25.shadowColor="Azure";
+		td25.shadowBlur=10;
+		function light (context,num) {
+			for (var i = 0; i <= num; i++) {
+				
+				context.shadowBlur=i;
+			};
+		}
+		setTimeout("light(td25,10)",1000);
+		
+		
+		td25.fill();
+		// setInterval(light,100);
+</script>
+</body>
+</html>

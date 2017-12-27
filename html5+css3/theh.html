@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<script src="js/angular.js"></script>
+	<script src="js/jquery-1.9.1.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<style>
+		.box{}
+		article section{display:none;padding: 50px;border:1px solid orange;}
+		.act{border: 1px solid pink;display: block}
+		#nav1>div{display: inline-block;background: aqua;padding: 10px}
+	</style>
+	<hr>
+	<p>html5中可以省略结束标签 colgroup,dt,dd,li,optgroup,option,p,rt,rp,thead,tbody,link,mata,param,source,wbr
+	<ol>
+		<li>lorem
+		<li>lorem
+		<li>lorem
+		<li>lorem
+		<li>lorem
+	</ol>
+	<hr>
+	<p>html5中不区分标签大小写</P>
+	<hr>
+	甚至可以省略全部标签：html,head,body,tbody
+	<hr>
+	可以省略属性值：checked,readonly,disabled,selected,defer,ismap,nohref,noshade,nowrap,multiple,noresize
+	<br>
+	<input type=checkbox name=zsf id checked>
+	<input type=text readonly>
+	<input type=text disabled>
+	<hr>
+	允许属性值不加引号
+	<code> < input type=checkbox name=zsf id checked > </code>
+	<hr>
+	<p>p标签是段落，段落与段落之间会产生更大的间距，p和span只能包含文本，图像，超链接，文本格式化元素和表单控件等内容，<mark>p可以包涵span，但span不能包涵p，div可以包涵更多内容</mark></p>
+	<hr>
+	上标元素sup<sup>lorem</sup>下标元素sub<sub>lorem</sub><br><bdo dir="ltr">赵帅飞</bdo><br><bdo dir="rtl">赵帅飞</bdo>
+	<br>
+	<abbr title="Hypertext Markup <q>Language</q>">HTML</abbr>
+	<address>表示地址的标签:http//www.baidu.com 有些浏览器会用斜体字显示</address>
+	<hr>
+	Lorem ipsum <blockquote>blockquote定义一段长的引用文本,通常会左右两边缩进，而且有时会用斜体,可以<mark>添加cite属性注明引用的地址但在网页上不予显示</mark></blockquote cite="www.baidu.com">at quam labori <q>有些短的引用可以用q标签，会自动左右加上引号且不换行</q> osam vel nisi!
+	<hr>
+	<cite><abbr title="cite用来表示比如作品的标题">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A repellendus id repudiandae odio. Aliquam ex similique sapiente quidem reprehenderit, beatae non dolorum. Sed deserunt, vel, deleniti cupiditate cum odit eveniet.</abbr></cite>
+	<hr>
+	用来表示，这是代码<code>.container</code><code>&lt;input type="text"&gt;</code>
+	要在其中写完整的标签要用<abbr title="& lt;">&lt;</abbr><abbr title="& gt;">&gt;</abbr>
+	&lt;input type="text"&gt;
+	<hr>
+	<p>用来表示专业术语的标签<mark>dfn</mark>，通常浏览器用粗体或斜体显示比如<dfn>dfn of language</dfn>
+	<hr>
+	<del cite="www.baidu.com" datetime="2016/11/28">删除文本的标签是del，</del><s>而且s标签与del标签用法一样</s>
+	可以添加cite设置删除或插入的原因，datetime表示(删除或插入的)日期
+	<hr>
+	<p>下面是用ins来包涵的标签，用来给文本添加下划线</p>
+	<ins>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium quibusdam similique voluptatum eligendi, laboriosam consectetur vero molestias voluptate itaque, aliquam quaerat officia, suscipit omnis rerum qui ducimus, tempore perferendis non.</ins>
+	<hr>
+	<pre>
+		外面包括了pre标签，    
+		里面的内容会按代码格式布局，比如回车空格在中可以得到相应的响应
+
+
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis, suscipit!
+		&lt;form action="get"&gt;
+			&lt;input type="text"&gt;
+		&lt;/form&gt;
+		
+	</pre>
+	<hr>
+	<p>下面是用samp定义的文本</p>
+	<samp>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere dolores placeat sint temporibus, ipsum dignissimos nihil mollitia veritatis, saepe tempora. Maxime magnam, ex odit. Ducimus excepturi tenetur ipsam obcaecati dignissimos.</samp>
+	<p>下面是用普通p定义的文本</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et ad aliquam voluptates explicabo eum, tempore nostrum blanditiis, fugiat molestias sit autem praesentium harum sapiente illo corporis modi. Numquam, debitis similique!</p>
+	<p>大学<samp>生活</samp>真好。中文或许没有效果</p>
+	<hr>
+	<p>以下是用kbd包涵的文本，用来表示这段是用键盘输入的，<q>基本不用</q></p>
+	<kbd>使用说明：Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex corporis nulla delectus odio aut cupiditate sed recusandae eaque, consequuntur quisquam, quo maiores! Esse sit natus, ducimus asperiores nihil quos, sequi.</kbd>
+	<hr>
+	<p>下面是用var标签包涵的字体，可用于定义变量</p>
+	<var>var i=1</var>
+	<hr>
+	<p>下面图像指定了一个地址，target属性来控制在哪个窗口打开</p>
+	<a href="http://www.jq22.com"><img src="img/q.jpg" alt=""></a>
+	<a href="http://www.jq22.com" target="_blank">_blank<img src="img/q.jpg" alt=""></a>
+	<a href="http://www.jq22.com" target="_parent">_parent<img src="img/q.jpg" alt=""></a>
+	<a href="http://www.jq22.com/jquery-info10945" target="_top">_top<img src="img/q.jpg" alt=""></a>
+	<a href="http://www.jq22.com" target="_self">_self<img src="img/q.jpg" alt=""></a>
+	<hr>
+	<p>href可以指定name属性</p>
+	<a href="#tet">指定name=tet的东西</a>
+	<!-- <a name="tet" ><video src="video/zsf.mp4" controls width=400 height=280></video></a> -->
+	<small><a href="" name="tet">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate ab necessitatibus amet voluptatem magnam, aspernatur, nisi doloribus dicta nobis soluta asperiores accusantium eius nesciunt officiis sit ad ducimus odit quidem?</a></small>
+	<hr>
+	<p>下面的图片分别指定了方形的一个区域</p>
+	<img src="img/j.jpg" alt="DNF图片" usemap="#mapid" class="img-thumbnail"  width=400px height=200px>
+	<map name="mapid">
+		<area shape="rect" coords="10,10,100,200" href="http://www.jq22.com" alt="">
+	</map>
+
+	<pre>
+		&lt;img src="img/j.jpg" alt="DNF图片" usemap="#mapid" class="img-thumbnail" width=400px height=200px&gt;
+		&lt;map name="mapid"&gt;
+			&lt;area shape="rect" coords="10,10,100,200" href="http://www.jq22.com" alt=""&gt;
+		&lt;/map&gt;
+		<samp>coords的四个值分别指离左边多少像素，离上边多少像素，区域的长度和区域的高度</samp>
+	</pre>
+	<p>下面的图片指定了一个圆形的区域</p>
+	<img src="img/like8.jpg" class="img-thumbnail" alt="ll" usemap="#fate">
+	<map name="fate">
+		<area shape="circle" coords="100,100,50" href="http://www.jq22.com" alt="">
+	</map>
+	<pre>
+	&lt;img src="img/like8.jpg" class="img-thumbnail" alt="" usemap="#fate"&gt;
+	&lt;map name="fate"&gt;
+		&lt;area shape="circle" coords="100,100,50" href="http://www.jq22.com" alt=""&gt;
+	&lt;/map&gt;
+	<samp>圆形中的coords的三个值是区域中心的横坐标，纵坐标，第三个值是以这个坐标为中心这个圆形区域的半径</samp>
+	<samp>如果shape="poly"，那么该区域是个自定义多边形,alt属性为图片出错后能显示的提示信息</samp>
+	</pre>
+	<hr>
+	<p>HTML5删除了frameset,frame,noframes，下面是用的iframe标签引入了另一个页面的视图</p>
+	<iframe id="ifr" hidden src="html5.html" frameborder="0" width=1200 height=200></iframe>
+	<button onclick="var ifr=document.getElementById('ifr');ifr.hidden=!ifr.hidden">显示/隐藏iframe</button>
+	<hr>
+	<pre>
+		&lt;iframe src="html5.html" frameborder="0" width=1200 height=200&gt;&lt;/iframe&gt;
+	</pre>
+	<hr>
+	<p>下面展示的是一段可编辑的文字，用了contentEditable属性主要是用来编辑表格的，开发者可以用innerHTML获取编辑后的内容</p>
+	<samp contentEditable>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati repudiandae velit corrupti nihil numquam ex, reprehenderit eveniet recusandae veniam asperiores in assumenda, est minus nobis doloremque voluptas beatae sunt impedit!</samp>
+	<pre>
+		&lt;samp contentEditable&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus, voluptatibus!&lt;/samp&gt;
+	</pre>
+	<button onclick="document.designMode='on'">设计模式</button>
+	点击上面的按钮可以触发设计模式，可以使页面所有支持contentEditable的元素变为可编辑的这个加上了js的功能属性为<mark>designMode</mark>
+	<pre>
+		&lt;button onclick="document.designMode='on'"&gt;设计模式&lt;/button&gt;
+	</pre>
+	<hr>
+	<p>html5中有个hidden属性，为隐藏的意思</p>
+	<h5 hidden id="h">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus quam expedita non dolorum, dolorem explicabo ullam culpa aspernatur tenetur rerum similique dolor ab amet, quisquam eius doloremque! Sed, repellat, eligendi.</h5>
+	<button id="btn">显示/隐藏</button>
+	<button id="apbtn">显示</button>
+	<button id="disbtn">隐藏</button>
+	<script>
+	var	btn=document.getElementById('btn');
+	var	apbtn=document.getElementById('apbtn');
+	var	h=document.getElementById('h');
+		btn.onclick=function() {
+			 h.hidden=!h.hidden;
+		};
+		apbtn.onclick=function() {
+			 h.hidden=false;
+		};
+		disbtn.onclick=function() {
+			 h.hidden=true;
+		};
+	</script>
+	<pre>
+	&lt;h5 hidden id="h"&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat fugit iusto possimus?&lt;/h5&gt;
+	&lt;button id="btn"&gt;显示/隐藏&lt;/button&gt;
+	&lt;button id="apbtn"&gt;显示&lt;/button&gt;
+	&lt;button id="disbtn"&gt;隐藏&lt;/button&gt;
+	&lt;script&gt;
+	var	btn=document.getElementById('btn');
+	var	apbtn=document.getElementById('apbtn');
+	var	h=document.getElementById('h');
+		btn.onclick=function() {
+			 <dfn>h.hidden=!h.hidden;</dfn>
+		};
+		apbtn.onclick=function() {
+			 h.hidden=false;
+		};
+		disbtn.onclick=function() {
+			 h.hidden=true;
+		};
+	&lt;/script&gt;
+	</pre>
+	<hr>
+	<p>在input或textarea加spellcheck属性会对里面输错的单词进行红色下划线提示；默认是true,可以设置为false <mark>火狐浏览器和IE内核的浏览器暂未支持此属性</mark></p>
+	<textarea name="" spellcheck="true" id="" cols="30" rows="10"></textarea>
+	<textarea name="" spellcheck="false" id="" cols="30" rows="10"></textarea>
+	<hr>
+	<p>在网页的head中加&lt;base href="html5.html" target="_blank"&gt;能使网页中没定义的链接链接到这个页面，默认跳转方式为_blank</p>
+	<hr>
+	<h5>下面是meta中一些属性的应用，如网页过期时间，页面自动跳转等</h5>
+	<br>
+	&lt;meta http-equiv="Expires" content="Sat Sep 24 14:12:12:12 CST 2008"&gt;定义网页的过期时间
+	<a href="http://kinglyhum.iteye.com/blog/827807" target="_blank">这篇文章详细讲解了用法</a>
+	<p>加下面的属性会在5秒后跳转到另一个页面</p>
+	<br>
+	&lt;meta http-equiv="refresh" content="5,html5.html"&gt;
+	<p>加下面的属性会禁止浏览器在本地缓存调阅页面内容</p>
+	&lt;meta http-equiv="Pragma" content="no-cache"&gt;
+	<br>
+	<mark>more....</mark>
+	<hr>
+	<p>html5使页面中的几乎所有元素变成可拖动的，如果要它不能被拖动加个<q>draggable="false"</q>可以设置一些JS属性使其在被拖动的时候携带数据<mark>在火狐浏览器中，释放后会默认打开一个页面,下面的方法还可以使图片1被拖动到页面的任意部分，设置数据弹出数据，使DIV1的背景色为灰色</mark></p>
+	
+	<img src="img/like3.png" width="100px" draggable="false" alt="">
+	<img src="img/like1.png" width="100px" alt="" id="img1">
+	<div id="div1" style="width: 100px;height: 100px;background: aqua;float:left"></div>
+	<div id="div2" style="width: 100px;height: 100px;background: HoneyDew;float:left"></div>
+	<button onclick="dr()">drag</button>
+	<script>
+	var img1=document.getElementById('img1');
+	var div1=document.getElementById('div1');
+	var div2=document.getElementById('div2');
+	document.ondragover=function (evt) {
+		return false;
+	}//使其页面中的元素被拖动后允许释放
+	function dr (argument) {
+		// body...
+	document.ondrop=function (evt) {
+		alert(evt.dataTransfer.getData("name"));
+			div1.style.background='gray';
+			img1.style.position="absolute";
+			img1.style.left=evt.pageX-50+'px';
+			img1.style.top=evt.pageY-50+'px';
+			return false;
+	}
+	}
+	img1.ondragstart=function happen (evt) {
+		img1.setData(evt.dataTransfer.setData("name","lorem"));
+	}
+	</script>
+	<pre>	
+	&lt;img src="img/like3.png" width="100px" draggable="false" alt=""&gt;
+	&lt;img src="img/like1.png" width="100px" alt="" id="img1"&gt;
+	&lt;div id="div1" style="width: 100px;height: 100px;background: aqua;float:left"&gt;&lt;/div&gt;
+	&lt;button onclick="dr()"&gt;drag&lt;/button&gt;
+	&lt;script&gt;
+	var img1=document.getElementById('img1');
+	var div1=document.getElementById('div1');
+	var div2=document.getElementById('div2');
+	document.ondragover=function (evt) {
+		return false;
+	}//使其页面中的元素被拖动后允许释放
+	function dr (argument) {
+		// body...
+	document.ondrop=function (evt) {
+		alert(evt.dataTransfer.getData("name"));
+			div1.style.background='gray';
+			img1.style.position="absolute";
+			img1.style.left=evt.pageX-50+'px';
+			img1.style.top=evt.pageY-50+'px';
+			return false;
+	}
+	}//这个方法让图片拖动的时候固定到相应的位置，如果不减去图片的宽度的一半，那么你不能轻松固定图片的中心点
+	img1.ondragstart=function happen (evt) {
+		img1.setData(evt.dataTransfer.setData("name","lorem"));
+	&lt;/script&gt;
+	</pre>
+	<nav>
+		<ul class="nav nav-tabs">
+			<li class='active'><a>ondragstart</a></li>
+			<li><a>ondrag</a></li>
+			<li><a>ondragend</a></li>
+			<li><a>ondragenter</a></li>
+			<li><a>ondrop</a></li>
+			<li><a>ondragover</a></li>
+			<li><a>ondragleave</a></li>
+			<!-- <li><a>收与去</a></li> -->
+		</ul>
+	</nav>
+	<article id="art1">
+		<section class="act">
+			<img src="img/like3.png" alt=""  id="imga">
+			图片开始拖动的时候触发
+			<script>
+				var imga=document.getElementById("imga");
+				imga.ondragstart=function function_name (argument) {
+					alert("aa")
+				}
+			</script>
+		</section>
+		<section>
+			<img src="img/like3.png" alt=""  id="imgb">
+			图片拖动的过程中会不停的触发
+			<script>
+				var imgb=document.getElementById('imgb');
+				imgb.ondrag=function function_name (argument) {
+					alert("123")
+				}
+			</script>
+		</section>
+		<section>
+			<img src="img/like3.png" alt=""  id="imgc">
+			图片拖动结束后会触发
+			<script>
+				var imgc=document.getElementById('imgc');
+				imgc.ondragend=function function_name (argument) {
+					alert("123")
+				}
+			</script>
+		</section>
+		<section>
+			<img src="img/like2.png" width="100px" alt="">
+			<img src="img/like3.png" alt=""  id="imgd">
+			拖动到图片范围里就会触发
+			<script>
+				var imgd=document.getElementById('imgd');
+				imgd.ondragenter=function function_name (argument) {
+					alert("123")
+				}
+			</script>
+		</section>
+		<section>
+		<img src="img/like2.png" width="100px" alt="">
+			<img src="img/like3.png" alt=""  id="imgg">
+			拖动到图片上会触发
+			<script>
+				var imgg=document.getElementById('imgg');
+				imgg.ondrop=function function_name (argument) {
+					alert("123");
+				}
+			</script>
+		</section>
+		<section>
+		<img src="img/like2.png" width="100px" alt="">
+			<img src="img/like3.png" alt=""  id="imge">
+			拖动到图片上面会一直触发
+			<script>
+				var imge=document.getElementById('imge');
+				imge.ondragover=function function_name (argument) {
+					alert("1");
+				}
+			</script>
+		</section>
+		<section>
+		<img src="img/like2.png" width="100px" alt="">
+			<img src="img/like3.png" alt=""  id="imgf">
+			拖动到图片里面不会触发，脱离了图片就会触发
+			<script>
+				var imgf=document.getElementById('imgf');
+				imgf.ondragleave=function function_name (argument) {
+					alert("123")
+				}
+			</script>
+		</section>
+		<!-- <section>
+			<nav id="nav1">
+				<div id="aa">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem facere nobis voluptate mollitia blanditiis vero earum quo consequuntur necessitatibus reprehenderit delectus impedit, dolore, commodi voluptas, quibusdam deserunt aspernatur molestias officiis!</div>
+				<ul class="breadcrumb" id="bb">
+					
+				</ul>
+				<img src="img/q.jpg" alt="">
+			</nav>
+			<script>
+			var aa=document.getElementById('aa');
+			var bb=document.getElementById('bb');
+				aa.ondragstart=function (evt) {
+					evt.dataTransfer.setData("name","<div>"+evt.target.innerHTML);
+					// alert(evt.target.innerHTML)
+				}
+				bb.ondrop=function (evt) {
+					var text=evt.dataTransfer.getData("name");
+					alert(evt.dataTransfer.getData("name"));
+					var newEle=document.creatElement("div");
+					newEle.id=new Date().getUTCMilliseconds();
+					newEle.innerHTML=text.substring(10);
+					newEle.draggable="true";
+					newEle.ondragstart=function (evt) {
+						evt.dataTransfer.setData("name","dk");
+					}
+					bb.appendChild(newEle);
+				}
+			</script>
+		</section> -->
+	</article>
+	<hr>
+	<script>
+	$(".nav>li").on("click",function (argument) {
+		$(this).addClass("active");
+		$(this).siblings("li").removeClass("active");
+		// alert($(this).index());
+		var i=$(this).index();
+		$("section").eq(i).addClass("act");
+		$("section").eq(i).siblings("section").removeClass("act");
+	})
+	</script>
+	<pre>
+	这段是上面列表的JS部分
+	&lt;script&gt;
+		$("ul>li").on("click",function (argument) {
+		$(this).addClass("active");
+		$(this).siblings("li").removeClass("active");
+		// alert($(this).index());
+		var i=$(this).index();
+		$("section").eq(i).addClass("act");
+		$("section").eq(i).siblings("section").removeClass("act");
+	})
+	&lt;/script&gt;
+	</pre>
+	<hr>
+	<p>关于表单</p>
+	<hr>
+
+	<dfn>表单的enctype属性用于指定编码模式：application/x-www.form-yrkebcided是默认的编码方式，只处理表单中的value，multipart/form-data二进制的方式，当需要表单上传文件用这种，text/plain，当表单的action属性为mailto:URL时方便，用于直接通过表单发送邮件的格式</dfn>
+	<mark>单纯的form元素不能生成可视化内容，也不包含任何表单控件，甚至不能提交表单，所以必须与其它表单控件元素结合使用</mark>
+	<p>每个有name属性的表单控件对应一个参数，没有name属性不会生成请求参数</p>
+	<p>label的for属性与input的id属性相合时，点击label标签里的内容，相应input会获得焦点，（尽量少用）</p>
+	<form action="" method="get" target="_self">
+		<label for="username">单行文本框：</label>
+		<input type="text" id="username"><br>
+	</form>
+	<pre>
+		&lt;form action="" method="get" target="_self"&gt;
+			&lt;label for="username"&gt;单行文本框：&lt;/label&gt;
+			&lt;input type="text" id="username"&gt;&lt;br&gt;
+		&lt;/form&gt;
+	</pre>
+	<hr>
+	<p>一个普通的图片按钮</p>
+	<button type="reset"><img src="img/q.jpg" alt=""></button>
+	<pre>
+		&lt;button type="reset"&gt;&lt;img src="img/q.jpg" alt=""&gt;&lt;/button&gt;
+	</pre>
+	<p>一个多选的下拉框(按住ctrl可以多选)</p>
+	<select name="se" id="" multiple size="5">
+		<optgroup label="这些">
+			<option value="">lorem1</option>
+			<option value="">lorem2</option>
+			<option value="">lorem3</option>
+			<option value="">lorem4</option>
+			<option value="">lorem5</option>
+			<option value="">lorem6</option>
+		</optgroup>
+		<optgroup label="其它">
+			<option value="">lorem7</option>
+			<option value="">lorem8</option>
+			<option value="">lorem9</option>
+		</optgroup>
+	</select>
+	<pre>
+		&lt;select name="se" id="" multiple size="2"&gt;
+			&lt;optgroup label="week1" &gt;&lt;option value=""&gt;lorem1&lt;/option&gt;&lt;/optgroup&gt;
+			&lt;optgroup label="month2" &gt;&lt;option value=""&gt;lorem2&lt;/option&gt;&lt;/optgroup&gt;
+			&lt;optgroup label="year3" &gt;&lt;option value=""&gt;lorem3&lt;/option&gt;&lt;/optgroup&gt;
+		&lt;/select&gt;
+	</pre>
+	<p>一个只读文本域</p>
+	<textarea name="" readonly id="" cols="30" rows="10">你不能改</textarea>
+	<pre>
+		&lt;textarea name="" readonly id="" cols="30" rows="10"&gt;你不能改&lt;/textarea&gt;
+	</pre>
+	<p>一个脱离了form还能参与form请求的文本框</p>
+	<form action="" id="fo" style="border:1px solid orange">
+		<input type="text">
+		<br>
+		<input type="submit" value="提交">
+	</form>
+	<input type="text" form="fo">
+	<pre>
+		&lt;form action="" id="fo" style="border:1px solid orange"&gt;
+			&lt;input type="text"&gt;
+			&lt;br&gt;
+			&lt;input type="submit" value="提交"&gt;
+		&lt;/form&gt;
+		&lt;input type="text" form="fo"&gt;
+	</pre>
+	<p>formation属性，可以方便使按钮动态提交到不同的地址</p>
+	<form action="html5.html">
+		<input type="submit" value="正常提交是这个网页">
+		<input type="submit" value="提交到另一个网页" formaction="http://jquery.cuishifeng.cn">
+	</form>
+	<pre>
+		&lt;form action="html5.html"&gt;
+			&lt;input type="submit" value="正常提交是这个网页"&gt;
+			&lt;input type="submit" value="提交到另一个网页" formaction="http://jquery.cuishifeng.cn"&gt;
+		&lt;/form&gt;
+	</pre>
+	<mark>formenctype,formmethod,formtarget等属性，，，</mark>
+	<hr>
+	<p>opera和firefox浏览器的属性，datalist，是一个看不见的select元素,一定要用list和datalist元素的id关联起来，列表项的value不要为空，如果value和里的内容和选项里的不同，会都显示,<q>autocomplete</q></p>
+	<form action="">
+		<input type="text" list="books" placeholder="看看这些">
+		<datalist id="books">
+			<option value="java">java</option>
+			<option value="jase">jase</option>
+			<option value="jast">Lorem ipsum dolor.</option>
+			<option value="jasr">Lorem ipsum dolor.</option>
+		</datalist>
+	</form>
+	<pre>
+		&lt;form action=""&gt;
+		&lt;input type="text" list="books" placeholder="看看这些"&gt;
+		&lt;datalist id="books"&gt;
+			&lt;option value="java"&gt;java&lt;/option&gt;
+			&lt;option value="jase"&gt;jase&lt;/option&gt;
+			&lt;option value="jast"&gt;Lorem ipsum dolor.&lt;/option&gt;
+			&lt;option value="jasr"&gt;Lorem ipsum dolor.&lt;/option&gt;
+		&lt;/datalist&gt;
+	</form>
+	</pre>
+	<hr>

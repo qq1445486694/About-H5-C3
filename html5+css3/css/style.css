@@ -1,0 +1,43 @@
+﻿					*{padding:0px;margin:0px;}
+					#thus{margin-top:20px;}
+					#lunbo img{width:100%;height:296px;}
+					.text-center{color:#000;}
+					#aa{text-decoration:none;}
+					a.thumbnail {
+						border: 1px solid #CCC;
+						border-radius: 20px;
+						box-shadow: 0px 1px 3px #BEBEBE;
+						padding:0px;
+					}
+					#aa:hover{border:1px solid #CCC;}
+					#aa img{width:526px;overflow:hidden;border-radius:20px 20px 0px 0px;}
+
+					.banquan a{color:#666}
+					.banquan a:hover{color:#666}
+					#nav_bottom{    
+						border-top: 1px solid #3D3D46;
+						background-image: -moz-linear-gradient(center top , #697077, #464A53 60%, #3F434E);
+						background-image: -webkit-linear-gradient(center top , #697077, #464A53 60%, #3F434E);
+						background-image: -o-linear-gradient(center top , #697077, #464A53 60%, #3F434E);
+						box-shadow: 0px 1px 0px #949494 inset;
+
+					}
+					#dao p{color:#fff;font-size:20px;}
+					.daotu{margin-top:5px;margin-bottom:5px;}
+					.daotu img{width:30%;}
+@media(max-width:1366px){
+	.daotu img{width:20%;}
+	#ban{margin-bottom:10%;}
+}
+@media(max-width:768px){
+	#dao p{font-size:17px;}
+	.daotu img{width:35%;}
+	#ban{margin-bottom:15%;}
+}
+@media(max-width:320px){
+	#lunbo img{height:200px;}
+	#aa h3{font-size:14px;}
+	.daotu img{width:45%}
+	#dao p{font-size:14px;}
+	#ban{margin-bottom:25%;}
+}

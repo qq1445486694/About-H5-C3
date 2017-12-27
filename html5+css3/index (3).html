@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style id="sty">
+		.box{border-radius: 50%;border: 1px solid red;width: 200px;height: 200px;position: relative;background: url(img/like3.png);}
+		#shi{width: 4px;height: 60px;background:gray;position: absolute;top:100px;left:98px;-webkit-transform-origin:center 0px;}
+		#fen{width: 3px;height: 75px;background:blue;position: absolute;top:100px;left:98.5px;-webkit-transform-origin:center 0px;}
+		#sec{width: 2px;height: 85px;background:red;position: absolute;top:100px;left:99px;-webkit-transform-origin:center 0px;}
+		#ul1>li:nth-of-type(5n){height: 14px;background: red}
+		#ul1>li{list-style: none;width: 2px;height: 10px;background:grey;position: absolute;top:0px;left:99px;-webkit-transform-origin:0px 100px;}
+		span{position: absolute;top:15px;left:94px;}
+		span:nth-of-type(2){top:93px;left:176px;}
+		span:nth-of-type(3){top:172px;}
+		span:nth-of-type(4){left:16px;top:93px;}
+
+	</style>
+</head>
+<body>
+	<div class="box">
+		<ul id="ul1">
+			
+		</ul>
+		<span>12</span>
+		<span>3</span>
+		<span>6</span>
+		<span>9</span>
+		<div id="shi"></div>
+		<div id="fen"></div>
+		<div id="sec"></div>
+	</div>
+</body>
+</html>
+<script>
+var sty=document.getElementById('sty');
+var ul=document.getElementById('ul1');
+for (var i = 60; i >= 0; i--) {
+	ul.innerHTML+='<li></li>';
+	sty.innerHTML+='#ul1>li:nth-of-type('+i+'){-webkit-transform:rotate('+i*6+'deg)}';
+};
+setInterval(change,1000);
+change();
+function change () {
+	var time=new Date();
+	var secon=time.getSeconds();
+	var min=time.getMinutes();
+	var hour=time.getHours()+min/60;
+	sec.style.webkitTransform="rotate("+secon*6+"deg)";
+	fen.style.webkitTransform="rotate("+min*6+"deg)";
+	shi.style.webkitTransform="rotate("+hour*30+"deg)";
+}
+</script>

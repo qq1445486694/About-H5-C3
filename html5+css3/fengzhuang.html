@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+	function zsf(name,age) {
+		this.name=name;
+		this.age=age;
+		this.info=function (argument) {
+			document.write("what"+this.name);
+			document.write("is"+this.age);
+		}
+	}
+	var z1= new zsf('赵帅飞','sfc');
+	// z1.info();
+	zsf.prototype.walk=function() {
+		document.write(this.name);
+	};
+	// z1.walk();
+</script>

@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>shouye</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<script src="js/jquery-1.9.1.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<style>
+		*{
+			margin:0px;
+			padding: 0px
+		}
+		.logo{
+			min-height: 0px;
+			width: 87%;
+			margin: -5px;
+			background: lime;
+		}
+		.nn{
+			margin-left: 35%;
+			color:white;
+		}
+		@media screen and (max-width: 524px){
+			.logo{
+				width: 85%;
+			}
+		}
+		.ex{
+			position:absolute;
+			top:-15%;
+			left:45%
+		}
+		#bigbox{
+			display: box;
+			display:-webkit-box;
+			display:-o-box;
+			display:-moz-box;
+			width: 960px;
+			margin:0px auto;
+		}
+		#bigbox>div{
+			padding: 5px;
+			box-sizing:border-box;
+			border: 1px solid orange;
+		}
+		#bigbox>div:nth-of-type(1){
+			width: 300px;
+		}
+		#bigbox>div:nth-of-type(2){
+			width: 360px;
+		}
+		#bigbox>div:nth-of-type(3){
+			width: 300px;
+		}
+		#container{
+			display: box;
+			display:-webkit-box;
+			display:-o-box;
+			display:-moz-box;
+			width: 960px;
+			margin:0px auto;
+			color:GhostWhite;
+		}
+		#container>div{
+			padding: 5px;
+			box-sizing:border-box;
+			border: 1px solid white;
+		}
+		#container>div:nth-of-type(1){
+			width: 150px;
+		}
+		#container>div:nth-of-type(2){
+			width: 510px;
+		}
+		#container>div:nth-of-type(3){
+			width: 300px;
+		}
+		@media screen and (max-width: 960px){		
+			.form-control{
+				border: 1px solid orange;
+				left:85%;
+				position: absolute;
+				top:20%;left:-50%;
+			}
+			.nn{
+				margin-left: 25%
+			}
+			#bigbox{
+				display: box;
+				display:-webkit-box;
+				display:-o-box;
+				display:-moz-box;
+				width: 90%;
+				margin:0px auto;
+				box-orient:vertical;
+				-webkit-box-orient:vertical;
+				-o-box-orient:vertical;
+				-moz-box-orient:vertical;
+			}
+			#bigbox>div{
+				padding: 5px;
+				box-sizing:border-box;
+				border: 1px solid orange;
+			}
+			#bigbox>div:nth-of-type(1){
+				width: 90%;
+			}
+			#bigbox>div:nth-of-type(2){
+				width: 90%;
+			}
+			#bigbox>div:nth-of-type(3){
+				width: 90%;
+			}
+			#container{
+				width: 90%;
+				box-orient:vertical;
+				-webkit-box-orient:vertical;
+				-o-box-orient:vertical;
+				-moz-box-orient:vertical;
+			}
+			#container>div{
+				padding: 5px;
+				box-sizing:border-box;
+				border: 1px solid white;
+			}
+			#container>div:nth-of-type(1){
+				width: 90%;
+			}
+			#container>div:nth-of-type(2){
+				width: 90%;
+			}
+			#container>div:nth-of-type(3){
+				width: 90%;
+			}
+		}
+		@media screen and (max-width: 768px){
+			.ex{
+				position: static;
+			}
+			.form-control{
+				position: static
+			}
+		}
+		img.dg{
+			min-width: 0px;
+			min-height: 0px;
+			width: 100%;
+			height: auto!important;
+			height: 100%;
+			top: 14%;
+			left: 0;
+			z-index: -1;
+			margin:0px;
+			display: inline-block;
+		}
+		.navbar-default{
+			background: none;
+			border: none;
+			padding-top: 20px
+		}
+		header{
+			background: -webkit-linear-gradient(#2f2f2f 0%,#101010 100%);
+			background: -o-linear-gradient(#2f2f2f 0%,#101010 100%);
+			background: -moz-linear-gradient(#2f2f2f 0%,#101010 100%);
+			background: linear-gradient(#2f2f2f 0%,#101010 100%);
+			height:14%;
+			max-height: 7%
+		}
+		img.dg2{
+			min-width: 0px;
+			min-height: 0px;
+			width: 20%;
+			height: auto;
+			position: absolute;
+		}
+		img.dg2{
+			-moz-animation-name:'nw';
+			-moz-animation-duration:8s;
+			-moz-animation-iteration-count:infinite;
+			-webkit-animation-name:'nw';
+			-webkit-animation-duration:8s;
+			-webkit-animation-iteration-count:infinite;
+			-o-animation-name:'nw';
+			-o-animation-duration:8s;
+			-o-animation-iteration-count:infinite;
+		}
+		.form-control{
+			background: #424040;
+			border:none;
+		}
+		img.dg2:hover{
+
+		}
+		@-moz-keyframes nw{
+			0%{
+				-moz-transform:translate(48%,20%);
+			}
+			25%{
+				-moz-transform:translate(200%,60%);
+			}
+			55%{
+				-moz-transform:translate(380%,20%);
+			}
+			100%{
+				-moz-transform:translate(48%,20%);
+			}
+		}
+		@-webkit-keyframes nw{
+			0%{
+				-webkit-transform:translate(48%,20%);
+			}
+			25%{
+				-webkit-transform:translate(200%,60%);
+			}
+			55%{
+				-webkit-transform:translate(380%,20%);
+			}
+			100%{
+				-webkit-transform:translate(48%,20%);
+			}
+		}
+		@-o-keyframes nw{
+			0%{
+				-o-transform:translate(48%,20%);
+			}
+			25%{
+				-o-transform:translate(200%,60%);
+			}
+			55%{
+				-o-transform:translate(380%,20%);
+			}
+			100%{
+				-o-transform:translate(48%,20%);
+			}
+		}
+		@keyframes'nw'{
+			0%{
+				transform:translate(48%,20%);
+			}
+			25%{
+				transform:translate(200%,60%);
+			}
+			55%{
+				transform:translate(380%,20%);
+			}
+			100%{
+				transform:translate(48%,20%);
+			}
+		}
+		main{
+			border: 1px solid orange;
+			clear: both;
+		}
+		footer{
+			background:black;
+			height:30%;
+			color:white;
+			font-weight:bold;
+		}
+		aside{
+			position:fixed;
+			background:black;
+			height:10%;
+			top:90%;
+			width: 100%;
+			left:0px;
+		}
+		datalist{
+			border: 1px solid white
+		}
+		input{
+			background: black
+		}
+		option{
+			background: black
+		}
+		#books{
+			background: black
+		}
+		footer>#fdiv{
+			text-align: center;
+			padding-bottom:30px
+		}
+		.top{
+			display: inline-block;
+			height: 7%;
+			border: 1px solid lime;
+			padding: 2% 0% 0% 20%
+		}
+		header>nav{
+			height: 7%;
+			border: 1px solid lime
+		}
+		.n>li{
+			float: left;
+			list-style: none;
+		}
+		.n{
+			display: inline-block;
+		}
+		/*@media screen and()*/
+		#bigbox>div::selection{
+			color:red;
+		}
+		canvas{
+			position: absolute;
+			left:0%;
+		}
+	</style>
+</head>
+<body>
+	<header><!-- <div id="logo"><img src="img/q2.gif" alt="" class="logo"> --><!-- <div class="top"> -->
+<!-- 		<a href="javascript:;">搜寻器</a><a href="javascript:;">牌张数据库</a><a href="javascript:;">SIGN IN</a><a href="javascript:;">SIGN UP</a> -->
+	<!-- <nav class="navbar-collapse" data-toggle="collapse">
+		<ul class="n">
+			<li><a href="javascript:;">wenzhang</a></li>
+			<li><a href="javascript:;">wenzhang</a></li>
+			<li><a href="javascript:;">wenzhang</a></li>
+			<li><a href="javascript:;">wenzhang</a></li>
+			<li><a href="javascript:;">wenzhang</a></li>
+			<li><a href="javascript:;">wenzhang</a></li>
+		</ul>
+	</nav> -->
+	<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><img src="img/q2.gif" alt="" class="logo"></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+  <ul class="nav navbar-nav ex">
+  	<li><a href="#">搜寻器</a></li>
+  	<li><a href="#">Card 数据库</a></li>
+  	<li><a href="#">SIGN IN</a></li>
+  	<li><a href="#">SIGN UP</a></li>
+  	<form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+      </form>
+  </ul>
+  <ul class="nav navbar-nav navbar-left nn">
+  	<li><a href="#">第一次接触万智牌</a></li>
+   	<li><a href="#">产品</a></li>
+    <li><a href="#">游戏玩法</a></li>
+    <li><a href="#">故事</a></li>
+    <li><a href="#">比赛</a></li>
+    <li><a href="#">文章</a></li>
+  </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+	</div>
+	</header>
+		<canvas style="border:1px solid orange;width: 100%;height: 115%;">
+	
+</canvas>
+<script>
+var c=document.getElementsByTagName('canvas')
+var td18=c[0].getContext('2d');
+	function CRF (context,n,dx,dy,size,length) {
+		context.beginPath();
+		context.moveTo(dx,dy+size);
+		var dig=2*Math.PI/n;
+		for (var i = 1; i <n+1; i++) {
+			var ctrlX=Math.sin((i-0.5)*dig)*length+dx;
+			var ctrlY=Math.cos((i-0.5)*dig)*length+dy;
+			var x=Math.sin(i*dig)*size+dx;
+			var y=Math.cos(i*dig)*size+dy;
+			context.quadraticCurveTo(ctrlX,ctrlY,x,y);
+		};
+		context.fillStyle="white";
+		context.closePath();
+	}
+	// CRF(td18,6,10,10,4,8);
+	// td18.stroke();
+	//定义雪花的初始位置
+	snowPOS=[
+		{x:20,y:34},
+		{x:60,y:114},
+		{x:100,y:24},
+		{x:140,y:84},
+		{x:180,y:14},
+				];
+	function fall (context) {
+		context.clearRect(0,0,300,200);
+		for (var i = 0, len=snowPOS.length; i<len;i++) {
+			context.save();
+			context.translate(snowPOS[i].x,snowPOS[i].y);
+			context.rotate((Math.random()*6-3)*Math.PI/10);
+			snowPOS[i].y+=2;
+			snowPOS[i].x+=Math.random()*0.1+1;
+			if(snowPOS[i].y>200){
+				snowPOS[i].y=0;
+			}
+			if(snowPOS[i].x>300){
+				snowPOS[i].x=0;
+				snowPOS[i].y=Math.random()*200;
+			}
+			CRF(context,6,0,0,5,8);
+			context.fill();
+			context.restore();
+		}
+	}
+	setInterval("fall(td18)",50);
+	function cl (context) {
+		context.clearRect(0,0,200,200);
+	}
+</script>
+	<main>
+		<img src="img/dlls.png" alt="" class="dg2">
+		<img src="img/bg3.jpg" alt="" class="dg">
+		<div id="bigbox">
+			<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae incidunt nisi velit libero mollitia autem! Dolore sint illo possimus iste itaque deserunt quaerat sed, corrupti voluptate doloremque. Delectus beatae, odit.</div>
+			<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae alias ex error distinctio laudantium recusandae, iure. Vel nisi soluta, minus consectetur reiciendis laborum, laudantium perspiciatis quos molestias quam eum. Autem!</div>
+			<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit dicta veritatis sint quidem asperiores magni eaque praesentium temporibus, magnam, eveniet consequatur possimus nihil? Nemo deserunt repudiandae soluta neque doloribus, quo!</div>
+		</div>
+	</main>
+	<footer>
+		<div id="fdiv">请选择您的语言
+		<input type="text" list="books" placeholder="简体中文">
+		<datalist id="books">
+			<option value="中文">中文</option>
+			<option value="English">English</option>
+			<option value=""></option>
+			<option value=""></option>
+			<option value=""></option>
+		</datalist>
+		</div>
+		<div id="container">
+			<div><img src="img/index2.png" alt=""></div>
+			<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid ex ullam atque nesciunt recusandae dolorum ipsa, sunt rem voluptas. Praesentium nisi saepe sint eius sed excepturi minus rem harum eaque!</div>
+			<div><img src="img/dog.gif" alt=""></div>
+		</div>
+	</footer>
+	
+</body>
+</html>
